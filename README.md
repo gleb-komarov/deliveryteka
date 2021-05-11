@@ -1,5 +1,6 @@
 # DELIVERYTEKA-WEB-SERVER
 
-Web-Server by @komar0ffDes | Klient Mobile Android App by @RomanLyshchyk (https://github.com/RomanLyshchyk) 
+Site with admin-panel, web-server by @komar0ffDes
+Klient android app by @RomanLyshchyk (https://github.com/RomanLyshchyk) 
 
 ![Previes DELIVERYTEKA](/img/logo.svg)
