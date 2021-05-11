@@ -18,9 +18,11 @@ function isExistUser($user_id) // проверка существования us
 function getFavoritesByUserId($user_id) { // берем данные корины из БД по user_id
     $pdo = getPdo();
     $query = $pdo->query(
-        "SELECT `medicine`.`medicine_id`, `medicine`.`medicine_name`, `medicine`.`medicine_form`, `medicine`.`medicine_price`, `medicine`.`medicine_pack`, `medicine`.`medicine_dosage`, `medicine`.`medicine_country`, `medicine`.`medicine_description`
+        "SELECT `medicine`.`medicine_id`, `medicine`.`medicine_name`, `medicine`.`medicine_price`,
+        `medicine`.`medicine_pack`, `medicine`.`medicine_dosage`, `medicine`.`medicine_country`, `medicine`.`medicine_description`,                           `medicine_forms`.`medicine_form_name` AS `medicine_form`
         FROM `favorites`
         INNER JOIN `medicine` ON `medicine`.`medicine_id` = `favorites`.`medicine_id`
+        INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`
         WHERE `favorites`.`user_id` = '$user_id'"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
