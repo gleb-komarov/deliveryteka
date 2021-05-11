@@ -1,0 +1,260 @@
+body {
+    margin: 0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #242424;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+.main {
+    background: url("../img/bg.png") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro {
+    width: 100%;
+    margin-bottom: 150px;
+}
+
+.intro__inner {
+    width: 100%;
+    margin-top: 100px;
+    margin-left: auto;
+}
+
+.intro__title {
+    margin-top: 140px;
+
+    font-size: 60px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.intro__subtitle {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: left;
+
+    margin-bottom: 70px;
+}
+
+.header {
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.under-header__inner {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.benefits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.benefits__inner {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    background-color: #FFF;
+    border: 1px solid rgba(166, 214, 200, 0.4);
+    border-radius: 18px;
+    box-shadow: 0 16px 43px rgba(17, 45, 71, 0.1);
+}
+
+.nav__link {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 25px;
+    position: relative;
+
+    font-weight: 500;
+    color: #242424;
+    text-decoration: none;
+
+    transition: color .2s linear;
+}
+
+.nav-panel__link {
+    margin: 0;
+    vertical-align: top;
+    font-weight: 700;
+    color: rgba(244, 67, 54, 0.85);
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: #242424;
+}
+
+.nav__link:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: rgba(244, 67, 54, 0.85);
+    opacity: 0;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.nav__link:hover:after {
+    opacity: 1;
+}
+
+.arrow-back__link {
+    margin: 0 8px 1px 0;
+}
+
+.download_button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 19px 50px 18px 50px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 40px 40px rgba(244, 67, 54, 0.85) inset, 0 0 0 0 rgba(244, 67, 54, 0.85);
+
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+}
+
+.download_button:hover {
+    box-shadow: 0 0 8px 0 rgba(244, 67, 54, 0.85) inset, 0 0 8px 4px rgba(244, 67, 54, 0.85);
+    color: rgba(244, 67, 54, 0.85);
+}
+
+.benefits__table {
+    border-spacing: 110px 0;
+    margin: 53px 38px 53px 37px;
+}
+
+.benefits__values {
+    line-height: 0.8;
+    color: rgba(244, 67, 54, 0.85);
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.benefits__titles {
+    color: rgba(244, 67, 54, 0.85);
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.benefits__subtitles {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+}
+
+.login__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 347px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 30px;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+    border: 2px solid #242424;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input:focus {
+    border: 2px solid rgba(244, 67, 54, 0.85);
+}
+
+button {
+    display: inline-block;
+    padding: 15px 132px 12px 132px;
+    margin: 8px 0;
+    border: 2px solid #242424;
+    border-radius: 8px;
+
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    color: #242424;
+
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+
+    background-color: white;
+}
+
+button:hover {
+    border: 2px solid rgba(244, 67, 54, 0.2);
+    color: white;
+    background-color: rgba(244, 67, 54, 0.85);
+}
