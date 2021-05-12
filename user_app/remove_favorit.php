@@ -9,7 +9,7 @@ else {
     $medicine_id = $_GET['medicine_id'];
 }
 
-function isExistFavorit($user_id, $medicine_id){ // проверка существования favorit
+function isExistUserFavorit($user_id, $medicine_id){ // проверка существования user_id
     $pdo = getPdo();
     $query = $pdo->query("SELECT * FROM `favorites` WHERE user_id = '$user_id' AND medicine_id = '$medicine_id';"); // выполнение sql запроса
     return $query->fetchAll(PDO::FETCH_OBJ);
@@ -20,28 +20,43 @@ function removeFavorit($user_id, $medicine_id){
     $query = $pdo->query("DELETE FROM `favorites` WHERE user_id = '$user_id' AND medicine_id = '$medicine_id';"); // выполнение sql запроса
 }
 
-function getMeidcineById($medicine_id) {
+function isExistUser($user_id) // проверка существования user_id в БД
+{
+    $pdo = getPdo();
+    $query = $pdo->query("SELECT * FROM `users` WHERE user_id = '$user_id';"); // выполнение sql запроса
+    return $query->fetchAll(PDO::FETCH_OBJ);
+}
+
+function getFavoritesByUserId($user_id) { // берем данные корины из БД по user_id
     $pdo = getPdo();
     $query = $pdo->query(
-        "SELECT `medicine`.`medicine_id`, `medicine`.`medicine_name`, `medicine`.`medicine_price`, `medicine`.`medicine_pack`, `medicine`.`medicine_dosage`, `medicine`.`medicine_country`, `medicine`.`medicine_description`, `medicine_categories`.`medicine_category_name` AS `medicine_category`, `medicine_forms`.`medicine_form_name` AS `medicine_form`
-        FROM `medicine`
-        INNER JOIN `medicine_categories` ON `medicine`.`medicine_category` = `medicine_categories`.`medicine_category_id`
+        "SELECT `medicine`.`medicine_id`, `medicine`.`medicine_name`, `medicine`.`medicine_price`,
+        `medicine`.`medicine_pack`, `medicine`.`medicine_dosage`, `medicine`.`medicine_country`, `medicine`.`medicine_description`,                           `medicine_forms`.`medicine_form_name` AS `medicine_form`
+        FROM `favorites`
+        INNER JOIN `medicine` ON `medicine`.`medicine_id` = `favorites`.`medicine_id`
         INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`
-        WHERE `medicine`.`medicine_id` = '$medicine_id';"
+        WHERE `favorites`.`user_id` = '$user_id'"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-if (isExistFavorit($user_id, $medicine_id)) { // проверяем если favorit существует
-    removeFavorit($user_id, $medicine_id); // удаляем user favorit
+function addImageInMedicineFavorites($array) { // добавляем картинку к карточкам медецины
+    foreach ($array as $row) {
+        $row->medicine_img = "img/" . $row->medicine_id . ".jpg";
+    }
+    return $array;
+}
 
-    $array = getMeidcineById($medicine_id); // возвращаем клиенту медицину которая только что была удалена
+if (isExistUserFavorit($user_id, $medicine_id)) { // проверяем если user basket существует
+    removeFavorit($user_id, $medicine_id); // удаляем user basket
+
+    $favorites = addImageInMedicineFavorites(getFavoritesByUserId($user_id));
 
     $response = array(
-        "result" =>$array
+        "result" =>$favorites
     );
 
-    print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ));
+    print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 }
 else {
     die(http_response_code(404));

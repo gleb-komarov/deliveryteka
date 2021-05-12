@@ -28,23 +28,29 @@ function getFavoritesByUserId($user_id) { // берем данные корин�
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-function addImageInMedicineBasket($array) { // добавляем картинку к карточкам медецины
+function addImageInMedicineFavorites($array) { // добавляем картинку к карточкам медецины
     foreach ($array as $row) {
         $row->medicine_img = "img/" . $row->medicine_id . ".jpg";
     }
     return $array;
 }
 
-if (isExistUser($user_id)) { // если пользователь есть, то все собириаем и отправляем клиенту
+function sendFavorites($user_id) {
+    if (isExistUser($user_id)) { // если пользователь есть, то все собириаем и отправляем клиенту
 
-    $basket = addImageInMedicineBasket(getFavoritesByUserId($user_id));
+        $favorites = addImageInMedicineFavorites(getFavoritesByUserId($user_id));
 
-    $response = array(
-        "result" =>$basket
-    );
+        $response = array(
+            "result" =>$favorites
+        );
 
-    print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    }
+    else {
+        die(http_response_code(404));
+    }
 }
-else {
-    die(http_response_code(404));
-}
+
+sendFavorites($user_id);
+
+
