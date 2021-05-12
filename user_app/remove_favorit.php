@@ -9,15 +9,15 @@ else {
     $medicine_id = $_GET['medicine_id'];
 }
 
-function isExistUserBasket($user_id, $medicine_id){ // проверка существования user_id
+function isExistFavorit($user_id, $medicine_id){ // проверка существования favorit
     $pdo = getPdo();
-    $query = $pdo->query("SELECT * FROM `basket` WHERE user_id = '$user_id' AND medicine_id = '$medicine_id';"); // выполнение sql запроса
+    $query = $pdo->query("SELECT * FROM `favorites` WHERE user_id = '$user_id' AND medicine_id = '$medicine_id';"); // выполнение sql запроса
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-function removeBasket($user_id, $medicine_id){
+function removeFavorit($user_id, $medicine_id){
     $pdo = getPdo();
-    $query = $pdo->query("DELETE FROM `basket` WHERE user_id = '$user_id' AND medicine_id = '$medicine_id';"); // выполнение sql запроса
+    $query = $pdo->query("DELETE FROM `favorites` WHERE user_id = '$user_id' AND medicine_id = '$medicine_id';"); // выполнение sql запроса
 }
 
 function getMeidcineById($medicine_id) {
@@ -32,8 +32,8 @@ function getMeidcineById($medicine_id) {
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-if (isExistUserBasket($user_id, $medicine_id)) { // проверяем если user basket существует
-    removeBasket($user_id, $medicine_id); // удаляем user basket
+if (isExistFavorit($user_id, $medicine_id)) { // проверяем если favorit существует
+    removeFavorit($user_id, $medicine_id); // удаляем user favorit
 
     $array = getMeidcineById($medicine_id); // возвращаем клиенту медицину которая только что была удалена
 
