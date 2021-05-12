@@ -29,7 +29,7 @@ function getBaskeyByUserId($user_id) { // берем данные корины �
 
 function addImageInMedicineBasket($array) { // добавляем картинку к карточкам медецины
     foreach ($array as $row) {
-        $row->img = "img/" . $row->medicine_id . ".jpg";
+        $row->medicine_img = "img/" . $row->medicine_id . ".jpg";
     }
     return $array;
 }

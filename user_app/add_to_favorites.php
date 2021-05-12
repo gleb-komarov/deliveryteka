@@ -23,7 +23,21 @@ function isExistMedicine($medicine_id) // проверка существова�
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-if (isExistUser($user_id) && isExistMedicine($medicine_id)) { //проверяем если user и medicine существуют то добавляем в избранные
+function sameFavoritExists($user_id, $medicine_id) { // проверка на существование такого же препарата в избранных у пользователя
+    $pdo = getPdo();
+    $query = $pdo->query("SELECT * FROM `favorites` WHERE user_id = '$user_id' AND medicine_id = '$medicine_id';"); // выполнение sql запроса
+    return $query->fetchAll(PDO::FETCH_OBJ);
+}
+
+if (isExistUser($user_id) && isExistMedicine($medicine_id)) { //проверяем если user и medicine существуют
+    if (sameFavoritExists($user_id, $medicine_id)) { // если избранное уже есть просто возвращаем массив с недобавленной медициной
+        $response = array(
+            "result" => isExistMedicine($medicine_id)
+        );
+
+        print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    }
+    else {
         $pdo = getPdo(); // подключаемся к БД
         $query = $pdo->query("INSERT INTO `favorites` (`favorit_id` ,`user_id` ,`medicine_id`) VALUES (NULL ,  '$user_id',  '$medicine_id');"); // запрос
 
@@ -32,6 +46,8 @@ if (isExistUser($user_id) && isExistMedicine($medicine_id)) { //проверяе
         );
 
         print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    }
+
 }
 else {
     die(http_response_code(404));
