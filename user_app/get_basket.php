@@ -44,7 +44,7 @@ if (isExistUser($user_id)) { // если пользователь есть, то
 
     $response = array(
         "result" =>$basket,
-        "total" =>$total
+        "total" => round($total,2)
     );
 
     print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
