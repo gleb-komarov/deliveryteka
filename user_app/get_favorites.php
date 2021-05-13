@@ -29,9 +29,13 @@ function getFavoritesByUserId($user_id) { // берем данные корин�
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-function addImageInMedicineFavorites($array) { // добавляем картинку к карточкам медецины
+function addImageAndPdfInMedicineFavorites($array) { // добавляем картинку к карточкам медецины
     foreach ($array as $row) {
         $row->medicine_img = "img/" . $row->medicine_id . ".jpg";
+        if ( file_exists("pdf/" . $row->medicine_id . ".pdf")) {
+            $row->medicine_pdf = "pdf/" . $row->medicine_id . ".pdf";
+        }
+        else $row->medicine_pdf = "";
     }
     return $array;
 }
@@ -39,7 +43,7 @@ function addImageInMedicineFavorites($array) { // добавляем карти�
 function sendFavorites($user_id) {
     if (isExistUser($user_id)) { // если пользователь есть, то все собириаем и отправляем клиенту
 
-        $favorites = addImageInMedicineFavorites(getFavoritesByUserId($user_id));
+        $favorites = addImageAndPdfInMedicineFavorites(getFavoritesByUserId($user_id));
 
         $response = array(
             "result" =>$favorites
@@ -53,5 +57,3 @@ function sendFavorites($user_id) {
 }
 
 sendFavorites($user_id);
-
-

@@ -47,7 +47,10 @@ function searchMedicine($query, $page, $per_page){
 function addImageAndPdfInMedicine($array) {
     foreach ($array as $row) {
         $row->medicine_img = "img/" . $row->medicine_id . ".jpg";
-        $row->medicine_pdf = "pdf" . $row->medicine_id . ".pdf";
+        if ( file_exists("pdf/" . $row->medicine_id . ".pdf")) {
+            $row->medicine_pdf = "pdf/" . $row->medicine_id . ".pdf";
+        }
+        else $row->medicine_pdf = "";
     }
     return $array;
 }
