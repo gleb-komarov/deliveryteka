@@ -44,14 +44,15 @@ function searchMedicine($query, $page, $per_page){
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-function addImageInMedicine($array) {
+function addImageAndPdfInMedicine($array) {
     foreach ($array as $row) {
         $row->medicine_img = "img/" . $row->medicine_id . ".jpg";
+        $row->medicine_pdf = "pdf" . $row->medicine_id . ".pdf";
     }
     return $array;
 }
 
-$array = addImageInMedicine($array);
+$array = addImageAndPdfInMedicine($array);
 
 $response = array(
     "result" =>$array
