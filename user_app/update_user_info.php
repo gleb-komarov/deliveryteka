@@ -17,7 +17,7 @@ function isExistUser($user_id) // проверка существования us
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-if (isExistUser($user_id)) { //проверяем если user и medicine существуют то добавляем в корзину
+if (isExistUser($user_id)) { //проверяем если user существует обновляем инфу
     $pdo = getPdo(); // подключаемся к БД
     $query = $pdo->query("UPDATE `users` SET `user_name` = '$user_name', `user_address` = '$user_address' WHERE user_id = '$user_id';"); // запрос
 

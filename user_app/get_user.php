@@ -17,9 +17,8 @@ function isExistUser($user_id) // проверка существования us
 
 function getUserById($user_id){
     $pdo = getPdo();
-    $query = $pdo->query("SELECT `users`.`user_phone`, `users`.`user_name`, `users`.`user_adress`, `med_cards`.`med_card_number` 
+    $query = $pdo->query("SELECT `users`.`user_phone`, `users`.`user_name`, `users`.`user_address`, `users`.`med_card_number` 
     FROM `users` 
-    LEFT JOIN `med_cards` ON `users`.`user_med_card_id` = `med_cards`.`med_card_id`
     WHERE `users`.`user_id` = '$user_id'");
     return $query->fetchAll(PDO::FETCH_OBJ); 
 }
