@@ -1,6 +1,13 @@
 <?php
 require '../db/config.php';
 
+$err_arr = [
+    "0" => [
+        "user_id" => "",
+        "user_phone" => "",
+    ],
+];
+
 if ( empty($_GET['user_id']) || empty($_GET['user_name']) || empty($_GET['user_address'])) { // check GET data
     die(http_response_code(404));
 }
@@ -19,7 +26,7 @@ function isExistUser($user_id) // проверка существования us
 
 if (isExistUser($user_id)) { //проверяем если user существует обновляем инфу
     $pdo = getPdo(); // подключаемся к БД
-    $query = $pdo->query("UPDATE `users` SET `user_name` = '$user_name', `user_address` = '$user_address' WHERE user_id = '$user_id';"); // запрос
+    $query = $pdo->query("UPDATE `users` SET `users`.`user_name` = '$user_name', `users`.`user_address` = '$user_address' WHERE `users`.`user_id` = '$user_id';"); // запрос
 
     $response = array(
         "result" => isExistUser($user_id)
@@ -28,5 +35,5 @@ if (isExistUser($user_id)) { //проверяем если user существу
     print_r(json_encode( $response , JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 }
 else {
-    die(http_response_code(404));
+    print_r(json_encode($err_arr, JSON_UNESCAPED_UNICODE));
 }

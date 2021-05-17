@@ -1,6 +1,14 @@
 <?php
 require '../db/config.php';
 
+$err_arr = [
+    "0" => [
+        "user_id" => "",
+        "user_password" => "",
+        "new_password" => "",
+    ],
+];
+
 if ( empty($_GET['user_id']) || empty($_GET['user_password']) || empty($_GET['new_password'])) { // check GET data
     die(http_response_code(404));
 }
@@ -19,8 +27,9 @@ function isExistUser($user_id) // проверка существования us
 
 function checkUserPassword($user_id, $user_password) {
     $pdo = getPdo(); // подключаемся к бд
-    $sql = "SELECT `user_phone`, `user_password` FROM `users` WHERE `user_id`= '$user_id'";
+    $sql = "SELECT `users`.`user_password` FROM `users` WHERE `users`.`user_id`= '$user_id'";
     $sth = $pdo->prepare($sql); // выполняем запрос
+    $sth->execute(['user_id' => $user_id]); // меняем ссылку на переменную
     $user = $sth->fetch(PDO::FETCH_ASSOC); // приравниваем переменую user к результату в виде массива
     if ($user) { // если $user существует
         if (password_verify($user_password, $user['user_password'])) { // и пароль верифицируется, а так же существует $user['password']
@@ -38,18 +47,14 @@ function checkUserPassword($user_id, $user_password) {
 function changeUserPassword($user_id, $new_password) {
     $pass_hash = password_hash($new_password, PASSWORD_DEFAULT);
     $pdo = getPdo();
-    $query = $pdo->query("UPDATE `users` SET `password` = '$pass_hash' WHERE id = '$user_id';");
+    $query = $pdo->query("UPDATE `users` SET `user_password` = '$pass_hash' WHERE `user_id` = '$user_id';");
 }
 
-if (isExistUser($user_id) && checkUserPassword($user_id, $user_password)) {
-    changeUserPassword($user_id, $new_password) ;
+if (checkUserPassword($user_id, $user_password)) {
+    changeUserPassword($user_id, $new_password);
 
-    $response = array(
-        "result" => isExistUser($user_id)
-    );
-
-    print_r(json_encode( $response , JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    print_r(json_encode(isExistUser($user_id), JSON_UNESCAPED_UNICODE));
 }
 else {
-    die(http_response_code(404));
+    print_r(json_encode($err_arr, JSON_UNESCAPED_UNICODE));
 }
