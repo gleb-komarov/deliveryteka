@@ -47,7 +47,7 @@ if ($user) { // если user существует
     $array = returnUserIdbyPhone($phone); // возвращаем клиенту информацию о только автор пользователя через телефон
 
     if (!$array) { // вдруг его мы все-таки не нашли :D
-        print_r(json_encode($err_arr, JSON_UNESCAPED_UNICODE));
+        print_r(json_encode("404", JSON_UNESCAPED_UNICODE));
         exit;
     }
     else {

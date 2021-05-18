@@ -17,22 +17,22 @@ $admin_login = $_SESSION['login'];
 <body>
     <header class="header">
         <section class="container">
-            <div class="header__inner">
-                <div class="header-">
+                <div class="header__inner">
                     <a class="nav__link" href="index.php"><img class="arrow-back__link" src="img/back_arrow.svg" alt="back_arrow" width="19" height="8">На главную</a>
                     <nav class="main-navigation">
                         <a class="nav__link" href="#">Здравствуйте, <?php echo $admin_login; ?>!</a>
                         <a class="nav__link" href="logout.php">Выйти</a>
                     </nav>
                 </div>
-                <div class="under-header">
-                    <a class="nav__link" href="#">Все препараты</a>
+                <div class="under-header__inner">
+                    <a class="nav__link" href="#">Препараты</a>
                     <a class="nav__link" href="#">Добавить препарат</a>
                     <a class="nav__link" href="#">Удалить препарат</a>
                     <a class="nav__link" href="#">Пользователи</a>
                     <a class="nav__link" href="#">Заказы</a>
+                    <a class="nav__link" href="#">Курьеры</a>
+                    <a class="nav__link" href="#">Добавить курьера</a>
                 </div>
-            </div>
         </section>
     </header>
 
@@ -45,6 +45,5 @@ $admin_login = $_SESSION['login'];
             </div>
         </section>
     </main>
-
 </body>
 </html>

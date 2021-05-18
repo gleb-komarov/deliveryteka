@@ -35,9 +35,6 @@
                     <a class="download_button" href="deliveryteka.rar" download>СКАЧАТЬ</a>
                 </div>
             </div>
-        </section>
-
-        <section class="benefits">
             <div class="container">
                 <div class="benefits__inner">
                     <table class="benefits__table">

@@ -35,7 +35,9 @@ function getMedicineByRecipe($user_id, $page, $per_page){
     $min = $page * $per_page;
     $pdo = getPdo();
     $query = $pdo->query(
-        "SELECT `medicine`.`medicine_id`, `medicine`.`medicine_name`, `medicine`.`medicine_price`, `medicine`.`medicine_pack`, `medicine`.`medicine_dosage`, `medicine`.`medicine_country`, `medicine`.`medicine_description`, `medicine_categories`.`medicine_category_name` AS `medicine_category`, `medicine_forms`.`medicine_form_name` AS `medicine_form`, `med_cards`.`count`
+        "SELECT `medicine`.`medicine_id`, `medicine`.`medicine_name`, `medicine`.`medicine_price`, `medicine`.`medicine_pack`, `medicine`.`medicine_dosage`,
+        `medicine`.`medicine_country`, `medicine`.`medicine_description`, `medicine_categories`.`medicine_category_name` AS `medicine_category`,
+        `medicine_forms`.`medicine_form_name` AS `medicine_form`, `med_cards`.`count`
         FROM `med_cards`
         INNER JOIN `medicine` ON `medicine`.`medicine_id` = `med_cards`.`medicine_id`
         INNER JOIN `medicine_categories` ON `medicine`.`medicine_category` = `medicine_categories`.`medicine_category_id`
@@ -51,7 +53,8 @@ function getMedicineByCategory($query, $page, $per_page){
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `medicine`.`medicine_id`, `medicine`.`medicine_name`, `medicine`.`medicine_price`, `medicine`.`medicine_pack`, `medicine`.`medicine_dosage`,
-        `medicine`.`medicine_country`, `medicine`.`medicine_description`, `medicine_categories`.`medicine_category_name` AS `medicine_category`, `medicine_forms`.`medicine_form_name` AS `medicine_form`
+        `medicine`.`medicine_country`, `medicine`.`medicine_description`, `medicine_categories`.`medicine_category_name` AS `medicine_category`,
+        `medicine_forms`.`medicine_form_name` AS `medicine_form`
         FROM `medicine`
         INNER JOIN `medicine_categories` ON `medicine`.`medicine_category` = `medicine_categories`.`medicine_category_id`
         INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`
