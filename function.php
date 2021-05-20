@@ -50,7 +50,7 @@ function addImageAndPdfInMedicine($array) { // добавляем img и pdf к 
 function getUsers() {
     $pdo = getPdo();
     $query = $pdo->query(
-        "SELECT `users`.`user_id`, `users`.`user_name`, `users`.`user_address`, `users`.`med_card_number`
+        "SELECT `users`.`user_id`, `users`.`user_phone`, `users`.`user_name`, `users`.`user_address`, `users`.`med_card_number`
         FROM `users`"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);

@@ -34,10 +34,10 @@ $users_array = getUsers();
                     </nav>
                 </div>
                 <div class="under-header__inner">
-                    <a class="nav__link" href="#"><p class="nav-panel__link">Препараты</p></a>
+                    <a class="nav__link" href="medicine.php">Препараты</a>
                     <a class="nav__link" href="#">Добавить препарат</a>
                     <a class="nav__link" href="#">Удалить препарат</a>
-                    <a class="nav__link" href="#">Пользователи</a>
+                    <a class="nav__link" href="users.php"><p class="nav-panel__link">Пользователи</p></a>
                     <a class="nav__link" href="#">Заказы</a>
                     <a class="nav__link" href="#">Курьеры</a>
                     <a class="nav__link" href="#">Добавить курьера</a>
@@ -46,38 +46,38 @@ $users_array = getUsers();
     </header>
 
     <main class="main">
-        <section class="medicine">
+        <section class="output">
             <div class="container">
-                <div class="medicine__inner">
-                    <table class="medicine__table">
-                        <tr>
-                            <th>ID</th>
-                            <th>Имя</th>
-                            <th>Адрес</th>
-                            <th>Номер мед. карты</th>
-                        </tr>
-                        <?php foreach ($users_array as $row) { ?>
-                         <tr>
-                             <td><?php echo "$row->user_id"; ?></td>
-                             <?php if ( $row->user_name != "") { ?>
-                               <td><?php echo "$row->user_name"; ?></td>
-                             <?php } else {?>
-                               <td>-</td>
-                             <?php } ?>
-                             <?php if ( $row->user_address != "") { ?>
-                                 <td><?php echo "$row->user_address"; ?></td>
-                             <?php } else {?>
-                                 <td>-</td>
-                             <?php } ?>
-                             <?php if ( $row->med_card_number != "") { ?>
-                                 <td><?php echo "$row->med_card_number"; ?></td>
-                             <?php } else {?>
-                                 <td>-</td>
-                             <?php } ?>
-                         </tr>
-                        <?php } ?>
-                    </table>
-                </div>
+                <table class="output__table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Номер телефона</th>
+                        <th>Имя</th>
+                        <th>Адрес</th>
+                        <th>Номер мед. карты</th>
+                    </tr>
+                    <?php foreach ($users_array as $row) { ?>
+                     <tr>
+                         <td><?php echo "$row->user_id"; ?></td>
+                         <td><?php echo "$row->user_phone"; ?></td>
+                         <?php if ( $row->user_name != "") { ?>
+                           <td><?php echo "$row->user_name"; ?></td>
+                         <?php } else {?>
+                           <td>-</td>
+                         <?php } ?>
+                         <?php if ( $row->user_address != "") { ?>
+                             <td><?php echo "$row->user_address"; ?></td>
+                         <?php } else {?>
+                             <td>-</td>
+                         <?php } ?>
+                         <?php if ( $row->med_card_number != "") { ?>
+                             <td><?php echo "$row->med_card_number"; ?></td>
+                         <?php } else {?>
+                             <td>-</td>
+                         <?php } ?>
+                     </tr>
+                    <?php } ?>
+                </table>
             </div>
         </section>
     </main>

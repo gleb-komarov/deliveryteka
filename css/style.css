@@ -94,7 +94,7 @@ body {
 .nav__link {
     display: inline-block;
     vertical-align: top;
-    margin-left: 25px;
+    margin: 0 15px 0 15px;
     position: relative;
 
     font-weight: 500;
@@ -264,7 +264,7 @@ button:hover {
     background-color: rgba(244, 67, 54, 0.85);
 }
 
-.medicine {
+.output {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -278,57 +278,51 @@ button:hover {
     background-position: center;
 }
 
-.medicine__inner {
-    display: flex;
-    justify-content: center;
-
+.output__table {
     width: 100%;
     margin: 0 auto;
-}
 
-.medicine__table {
     text-align: center;
     border-radius: 8px;
     border-spacing: 0;
 }
 
-.medicine__table th {
+.output__table th {
     color: white;
     background-color: rgba(244, 67, 54, 0.85);
     padding: 10px 20px;
 }
 
-.medicine__table td {
-    padding: 10px 20px;
+.output__table td {
+    padding: 10px 0 10px 0;
 }
 
-.medicine__table tr {
+.output__table tr {
     -webkit-transition: 0.1s;
     transition: 0.1s;
-    background-color: white;
 }
 
-.medicine__table tr:hover {
-    background: rgba(255, 137, 124, 0.85);
+.output__table tr:hover {
+    background: rgba(255, 137, 124, 0.1);
 }
 
-.medicine__table th:first-child {
+.output__table th:first-child {
     border-radius: 15px 0px 0px 15px;
 }
 
-.medicine__table th:last-child {
+.output__table th:last-child {
     border-radius: 0px 15px 15px 0px;
 }
 
-.medicine__table td:first-child {
+.output__table td:first-child {
     border-radius: 15px 0px 0px 15px;
 }
 
-.medicine__table td:last-child {
+.output__table td:last-child {
     border-radius: 0px 15px 15px 0px;
 }
 
-.medicine__table a {
+.output__table a {
     color: #242424;
     text-decoration: none;
 }

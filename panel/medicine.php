@@ -34,10 +34,10 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
                     </nav>
                 </div>
                 <div class="under-header__inner">
-                    <a class="nav__link" href="#"><p class="nav-panel__link">Препараты</p></a>
+                    <a class="nav__link" href="medicine.php"><p class="nav-panel__link">Препараты</p></a>
                     <a class="nav__link" href="#">Добавить препарат</a>
                     <a class="nav__link" href="#">Удалить препарат</a>
-                    <a class="nav__link" href="#">Пользователи</a>
+                    <a class="nav__link" href="users.php">Пользователи</a>
                     <a class="nav__link" href="#">Заказы</a>
                     <a class="nav__link" href="#">Курьеры</a>
                     <a class="nav__link" href="#">Добавить курьера</a>
@@ -46,10 +46,10 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
     </header>
 
     <main class="main">
-        <section class="medicine">
+        <section class="output">
             <div class="container">
-                <div class="medicine__inner">
-                    <table class="medicine__table">
+                <div class="output__inner">
+                    <table class="output__table">
                         <tr>
                             <th>ID</th>
                             <th>Название</th>
