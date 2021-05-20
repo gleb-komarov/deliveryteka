@@ -13,14 +13,14 @@
     <header class="header">
         <section class="container">
             <div class="header__inner">
-                <a class="logo" href="index.php">
+                <a class="logo" href="">
                     <img class="main-logo" src="img/logo.svg" alt="logo">
                 </a>
                 <nav class="main-navigation">
                     <a class="nav__link" href="#">Главная</a>
                     <a class="nav__link" href="#">О сервисе</a>
                     <a class="nav__link" href="#">Стать курьером</a>
-                    <a class="nav__link" href="login.php"><p class="nav-panel__link">Панель администратора</p></a>
+                    <a class="nav__link" href="login/"><p class="nav-panel__link">Панель администратора</p></a>
                 </nav>
             </div>
         </section>

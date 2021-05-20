@@ -121,6 +121,7 @@ body {
     display: block;
     width: 100%;
     height: 3px;
+    border-radius: 5px;
 
     background-color: rgba(244, 67, 54, 0.85);
     opacity: 0;
@@ -129,8 +130,6 @@ body {
     top: 100%;
     left: 0;
     z-index: 1;
-
-    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -263,4 +262,92 @@ button:hover {
     border: 2px solid rgba(244, 67, 54, 0.2);
     color: white;
     background-color: rgba(244, 67, 54, 0.85);
+}
+
+.medicine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+
+    background: url("../img/bg.png") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+.medicine__inner {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    margin: 0 auto;
+}
+
+.medicine__table {
+    text-align: center;
+    border-radius: 8px;
+    border-spacing: 0;
+}
+
+.medicine__table th {
+    color: white;
+    background-color: rgba(244, 67, 54, 0.85);
+    padding: 10px 20px;
+}
+
+.medicine__table td {
+    padding: 10px 20px;
+}
+
+.medicine__table tr {
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+    background-color: white;
+}
+
+.medicine__table tr:hover {
+    background: rgba(255, 137, 124, 0.85);
+}
+
+.medicine__table th:first-child {
+    border-radius: 15px 0px 0px 15px;
+}
+
+.medicine__table th:last-child {
+    border-radius: 0px 15px 15px 0px;
+}
+
+.medicine__table td:first-child {
+    border-radius: 15px 0px 0px 15px;
+}
+
+.medicine__table td:last-child {
+    border-radius: 0px 15px 15px 0px;
+}
+
+.medicine__table a {
+    color: #242424;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+
+    background: url("../img/bg.png") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+.menu__title {
+    color: #242424;
+    text-align: center;
 }

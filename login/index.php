@@ -1,9 +1,9 @@
 <?php
-require 'function.php';
+require '../function.php';
 session_start();
 
 if ($_SESSION['login']) {
-    header('Location: panel.php');
+    header('Location: ../panel/');
 }
 
 if (!empty($_POST)) {
@@ -14,7 +14,7 @@ if (!empty($_POST)) {
     if (!empty($user)) { // если user существует
         $_SESSION['id'] = $user['admin_id']; // добавляем id пользователя в сессию
         $_SESSION['login'] = $user['admin_login']; // добавляем login пользователя в сессию
-        header('Location: panel.php'); // переходим в панель
+        header('Location: ../panel/'); // переходим в панель
         exit; // прерываем все процессы
     } else {
         $error = "Неверный логин или пароль!"; // добавляем ошибку
@@ -27,10 +27,10 @@ if (!empty($_POST)) {
 <head>
     <meta charset="utf-8">
     <title>Вход в панель администратора DELIVERYTEKA</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="img/shortcut_logo.svg" type="image/vsg">
+    <link rel="shortcut icon" href="../img/shortcut_logo.svg" type="image/vsg">
 </head>
 
 <body>
@@ -38,7 +38,7 @@ if (!empty($_POST)) {
         <section class="container">
             <div class="header__inner">
                 <nav class="main-navigation">
-                    <a class="nav__link" href="index.php"><img class="arrow-back__link" src="img/back_arrow.svg" alt="back_arrow" width="19" height="8">На главную</a>
+                    <a class="nav__link" href="../"><img class="arrow-back__link" src="../img/back_arrow.svg" alt="back_arrow" width="19" height="8">На главную</a>
                 </nav>
             </div>
         </section>
@@ -48,7 +48,7 @@ if (!empty($_POST)) {
         <section class="login">
             <div class="container">
                 <div class="login__inner">
-                    <img src="img/logo_panel.svg" alt="logo_panel">
+                    <img src="../img/logo_panel.svg" alt="logo_panel">
                     <form action="" method="post">
                         <input type="text" name="login" placeholder="Логин" title="Введите Ваш логин">
                         <input type="password" name="password" placeholder="Пароль" title="Введите Ваш пароль">
