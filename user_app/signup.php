@@ -41,7 +41,7 @@ function returnUserIdbyPhone($phone) {
 if (empty($errors)) {
     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
     $pdo = getPdo(); // подключаемся к БД
-    $query = $pdo->query("INSERT INTO  `users` (`user_id` ,`user_phone` ,`user_password`, `user_name`, `user_adress`, `user_med_card_id`) 
+    $query = $pdo->query("INSERT INTO  `users` (`user_id` ,`user_phone` ,`user_password`, `user_name`, `user_address`, `med_card_number`) 
                             VALUES (NULL , '$phone', '$pass_hash', NULL, NULL, NULL);"); // запрос
 
     $array = returnUserIdbyPhone($phone); // возвращаем клиенту информацию о только зарег пользователя через телефон
