@@ -60,7 +60,7 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
                             <th>Форма</th>
                             <th>Категория</th>
                             <th>Картинка</th>
-                            <th>PDF-инструкция</th>
+                            <th>PDF</th>
                         </tr>
                         <?php foreach ($medicine_array as $row) { ?>
                          <tr>
@@ -72,9 +72,9 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
                              <td><?php echo "$row->medicine_dosage"; ?></td>
                              <td><?php echo "$row->medicine_form"; ?></td>
                              <td><?php echo "$row->medicine_category"; ?></td>
-                             <td><a href="<?php echo "$row->medicine_img"; ?>">Картинка</a></td>
+                             <td><a href="<?php echo "$row->medicine_img";?>" target="_blank"><img class="output__img" src="<?php echo "$row->medicine_img";?>" width="40" height="40" alt="Картинка"></a></td>
                              <?php if ( file_exists($row->medicine_pdf)) { ?>
-                               <td><a href="<?php echo "$row->medicine_pdf"; ?>">PDF-файл</a></td>
+                               <td><a href="<?php echo "$row->medicine_pdf"; ?>" target="_blank">PDF-файл</a></td>
                              <?php } else {?>
                                <td>-</td>
                              <?php } ?>
