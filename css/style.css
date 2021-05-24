@@ -41,12 +41,27 @@ body {
     text-align: left;
 }
 
+.error__title {
+    margin: 0;
+
+    text-align: center;
+    color: rgba(244, 67, 54, 0.4);
+    font-size: 500px;
+    font-weight: bold;
+}
+
 .intro__subtitle {
     font-size: 24px;
     font-weight: 500;
     text-align: left;
 
     margin-bottom: 70px;
+}
+
+.error__subtitle {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
 }
 
 .header {
@@ -141,7 +156,7 @@ body {
     margin: 0 8px 1px 0;
 }
 
-.download_button {
+.main__button {
     text-decoration: none;
     display: inline-block;
     padding: 19px 50px 18px 50px;
@@ -158,7 +173,7 @@ body {
     transition: 0.1s;
 }
 
-.download_button:hover {
+.main__button:hover {
     box-shadow: 0 0 8px 0 rgba(244, 67, 54, 0.85) inset, 0 0 8px 4px rgba(244, 67, 54, 0.85);
     color: rgba(244, 67, 54, 0.85);
 }
@@ -210,7 +225,7 @@ body {
     margin: 0 auto;
 }
 
-form {
+.login__form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,7 +234,7 @@ form {
     margin-top: 30px;
 }
 
-input {
+.login__input, .password__input {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -235,11 +250,15 @@ input {
     outline: none;
 }
 
-input:focus {
+.login__input:focus {
     border: 2px solid rgba(244, 67, 54, 0.85);
 }
 
-button {
+.password__input:focus {
+    border: 2px solid rgba(244, 67, 54, 0.85);
+}
+
+.login__button {
     display: inline-block;
     padding: 15px 132px 12px 132px;
     margin: 8px 0;
@@ -258,10 +277,15 @@ button {
     background-color: white;
 }
 
-button:hover {
+.login__button:hover {
     border: 2px solid rgba(244, 67, 54, 0.2);
     color: white;
     background-color: rgba(244, 67, 54, 0.85);
+}
+
+.login__error {
+    font-weight: 600;
+    color: rgba(244, 67, 54, 0.85);
 }
 
 .output {
@@ -347,4 +371,44 @@ button:hover {
 .menu__title {
     color: #242424;
     text-align: center;
+}
+
+.error {
+    width: 100%;
+
+    background: url("../img/bg.png") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+.error__inner {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.home__button {
+    margin: 50px auto;
+
+    text-decoration: none;
+    display: inline-block;
+    padding: 19px 50px 18px 50px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 40px 40px rgba(244, 67, 54, 0.85) inset, 0 0 0 0 rgba(244, 67, 54, 0.85);
+
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+}
+
+.home__button:hover {
+    box-shadow: 0 0 8px 0 rgba(244, 67, 54, 0.85) inset, 0 0 8px 4px rgba(244, 67, 54, 0.85);
+    color: rgba(244, 67, 54, 0.85);
 }

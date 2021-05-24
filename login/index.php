@@ -49,11 +49,11 @@ if (!empty($_POST)) {
             <div class="container">
                 <div class="login__inner">
                     <img src="../img/logo_panel.svg" alt="logo_panel">
-                    <form action="" method="post">
-                        <input type="text" name="login" placeholder="Логин" title="Введите Ваш логин">
-                        <input type="password" name="password" placeholder="Пароль" title="Введите Ваш пароль">
-                        <button type="submit">Войти</button>
-                        <?php echo $error ?>
+                    <form class="login__form" action="" method="post">
+                        <input class="login__input" type="text" name="login" maxlength="16" placeholder="Логин" title="Введите Ваш логин">
+                        <input class="password__input" type="password" name="password" maxlength="16" placeholder="Пароль" title="Введите Ваш пароль">
+                        <button class="login__button" type="submit">Войти</button>
+                        <p class="login__error"><?php echo $error; unset($error)?></p>
                     </form>
                 </div>
             </div>

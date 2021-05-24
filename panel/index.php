@@ -4,7 +4,7 @@ if ( isset($_SESSION['login'])) { // проверям залогинен ли ad
     $admin_login = $_SESSION['login'];
 }
 else {
-    header('Location: login.php'); // если не залогинен переходим на страницу логина
+    header('Location: ../login'); // если не залогинен переходим на страницу логина
 }
 ?>
 
