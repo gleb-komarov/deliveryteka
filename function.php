@@ -55,3 +55,29 @@ function getUsers() {
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
+
+function isUniqueCourierPhone($phone) // проверка уникальности email
+{
+    $sql = "SELECT count(*) FROM `couriers` WHERE courier_phone = '$phone'"; // проверка на количество совпадений
+    $result = getPdo()->prepare($sql); // выполнение sql запроса
+    $result->execute(['phone' => $phone]); // приравнивание ссылки
+    return (bool)$result->fetchColumn(); // вывод в виде boolean
+}
+
+function registerCourier($phone, $password, $name)
+{
+    $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+    $pdo = getPdo(); // подключаемся к БД
+    $query = $pdo->query("INSERT INTO  `couriers` (`courier_id` ,`courier_phone` ,`courier_password`, `courier_name`, `is_online`) 
+    VALUES (NULL , '$phone', '$pass_hash', '$name', 0);"); // запрос
+}
+
+function getErrors($errors) {
+    if (!empty($errors)) {
+        echo "<ul class='error__list'>";
+        foreach ($errors as $error) {
+            echo "<li>$error</li><br>";
+        }
+        echo "</ul>";
+    }
+}

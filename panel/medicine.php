@@ -40,7 +40,7 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
                     <a class="nav__link" href="users.php">Пользователи</a>
                     <a class="nav__link" href="#">Заказы</a>
                     <a class="nav__link" href="#">Курьеры</a>
-                    <a class="nav__link" href="#">Добавить курьера</a>
+                    <a class="nav__link" href="add_courier.php">Добавить курьера</a>
                 </div>
         </section>
     </header>
