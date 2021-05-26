@@ -27,6 +27,7 @@ if (!empty($_POST)) {
     }
     if (empty($errors)) { // если ошибок нету
         registerCourier($phone, $password, $username); // срабатывает функция регистрации
+        $result = "<p class='error__list'>Вы успешно добавили курьера $username, тел: $phone!</p>";
     }
 }
 ?>
@@ -72,9 +73,13 @@ if (!empty($_POST)) {
                         <h3 class="add__title">Введите данные курьера для добавления в БД:</h3>
                         <input class="phone__input" type="text" name="phone" maxlength="18" placeholder="Номер телефона" title="Введите номер телефона">
                         <input class="login__input" type="text" name="name" maxlength="16" placeholder="Имя" title="Введите имя">
-                        <input class="password__input" type="password" name="password" maxlength="16" placeholder="Пароль" title="Введите пароль">
+                        <input class="password__input" type="text" name="password" maxlength="16" placeholder="Пароль" title="Введите пароль">
                         <button class="accept__button" type="submit">Добавить</button>
-                        <?php getErrors($errors); $errors = [];?>
+                        <?php
+                        getErrors($errors);
+                        $errors = [];
+                        echo $result;
+                        ?>
                     </form>
                 </div>
             </div>
