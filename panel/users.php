@@ -38,8 +38,8 @@ $users_array = getUsers();
                     <a class="nav__link" href="#">Добавить препарат</a>
                     <a class="nav__link" href="#">Удалить препарат</a>
                     <a class="nav__link" href="users.php"><p class="nav-panel__link">Пользователи</p></a>
-                    <a class="nav__link" href="#">Заказы</a>
-                    <a class="nav__link" href="#">Курьеры</a>
+                    <a class="nav__link" href="orders.php">Заказы</a>
+                    <a class="nav__link" href="couriers.php">Курьеры</a>
                     <a class="nav__link" href="add_courier.php">Добавить курьера</a>
                 </div>
         </section>

@@ -318,7 +318,7 @@ body {
 }
 
 .output__table tr:hover {
-    background: rgba(255, 137, 124, 0.1);
+    background: rgba(255, 137, 124, 0.2);
 }
 
 .output__table th:first-child {

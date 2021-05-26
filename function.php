@@ -7,7 +7,7 @@ function loginUser($login, $password)
         return false; // возвращаем false
     }
     $pdo = getPdo(); // подключаемся к бд
-    $sql = "SELECT `admin_id`, `admin_login`, `admin_password` FROM `admins` WHERE `admin_login`='$login'"; // сравниваем логин с логином в бд
+    $sql = "SELECT `admin_id`, `admin_login`, `admin_password` FROM `admins` WHERE `admin_login`='$login';"; // сравниваем логин с логином в бд
     $sth = $pdo->prepare($sql); // выполняем запрос
     $sth->execute(['admin_login' => $login]); //меняем ссылку на переменную
     $user = $sth->fetch(PDO::FETCH_ASSOC); // приравниваем переменую user к результату в виде массива
@@ -31,7 +31,7 @@ function getMedicine() {
         `medicine_categories`.`medicine_category_name` AS `medicine_category`, `medicine_forms`.`medicine_form_name` AS `medicine_form`
         FROM `medicine`
         INNER JOIN `medicine_categories` ON `medicine`.`medicine_category` = `medicine_categories`.`medicine_category_id`
-        INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`"
+        INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
@@ -51,14 +51,34 @@ function getUsers() {
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `users`.`user_id`, `users`.`user_phone`, `users`.`user_name`, `users`.`user_address`, `users`.`med_card_number`
-        FROM `users`"
+        FROM `users`;");
+    return $query->fetchAll(PDO::FETCH_OBJ);
+}
+
+function getCouriers() {
+    $pdo = getPdo();
+    $query = $pdo->query(
+        "SELECT `couriers`.`courier_id`, `couriers`.`courier_phone`, `couriers`.`courier_name`, `couriers`.`is_online`
+        FROM `couriers`");
+    return $query->fetchAll(PDO::FETCH_OBJ);
+}
+
+function getOrders() {
+    $pdo = getPdo();
+    $query = $pdo->query(
+        "SELECT `orders`.`order_id`, `orders`.`order_datetime`, `order_statuses`.`order_status_name` AS `order_status`, `couriers`.`courier_phone`,
+        `orders`.`user_phone`, `orders`.`user_address`, `orders`.`user_comment`, `pay_methods`.`pay_method_name` AS `pay_method` , `orders`.`order_total`
+        FROM `orders`
+        INNER JOIN `order_statuses` ON `order_statuses`.`order_status_id` = `orders`.`order_status_id`
+        INNER JOIN `couriers` ON `couriers`.`courier_id` = `orders`.`courier_id`
+        INNER JOIN `pay_methods` ON `pay_methods`.`pay_method_id` = `orders`.`pay_method_id`;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
 function isUniqueCourierPhone($phone) // проверка уникальности email
 {
-    $sql = "SELECT count(*) FROM `couriers` WHERE courier_phone = '$phone'"; // проверка на количество совпадений
+    $sql = "SELECT count(*) FROM `couriers` WHERE courier_phone = '$phone';"; // проверка на количество совпадений
     $result = getPdo()->prepare($sql); // выполнение sql запроса
     $result->execute(['phone' => $phone]); // приравнивание ссылки
     return (bool)$result->fetchColumn(); // вывод в виде boolean

@@ -58,9 +58,9 @@ if (!empty($_POST)) {
                     <a class="nav__link" href="#">Добавить препарат</a>
                     <a class="nav__link" href="#">Удалить препарат</a>
                     <a class="nav__link" href="users.php">Пользователи</a>
-                    <a class="nav__link" href="#">Заказы</a>
-                    <a class="nav__link" href="#">Курьеры</a>
-                    <a class="nav__link" href="#"><p class="nav-panel__link">Добавить курьера</p></a>
+                    <a class="nav__link" href="orders.php">Заказы</a>
+                    <a class="nav__link" href="couriers.php">Курьеры</a>
+                    <a class="nav__link" href="add_courier.php"><p class="nav-panel__link">Добавить курьера</p></a>
                 </div>
         </section>
     </header>
@@ -79,6 +79,7 @@ if (!empty($_POST)) {
                         getErrors($errors);
                         $errors = [];
                         echo $result;
+                        unset($result);
                         ?>
                     </form>
                 </div>

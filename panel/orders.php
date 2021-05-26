@@ -1,11 +1,15 @@
 <?php
+require '../function.php';
+
 session_start();
 if ( isset($_SESSION['login'])) { // проверям залогинен ли admin
     $admin_login = $_SESSION['login'];
 }
 else {
-    header('Location: ../login'); // если не залогинен переходим на страницу логина
+    header('Location: login.php'); // если не залогинен переходим на страницу логина
 }
+
+$orders_array = getOrders();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +38,7 @@ else {
                     <a class="nav__link" href="#">Добавить препарат</a>
                     <a class="nav__link" href="#">Удалить препарат</a>
                     <a class="nav__link" href="users.php">Пользователи</a>
-                    <a class="nav__link" href="orders.php">Заказы</a>
+                    <a class="nav__link" href="orders.php"><p class="nav-panel__link">Заказы</p></a>
                     <a class="nav__link" href="couriers.php">Курьеры</a>
                     <a class="nav__link" href="add_courier.php">Добавить курьера</a>
                 </div>
@@ -42,9 +46,34 @@ else {
     </header>
 
     <main class="main">
-        <section class="menu">
+        <section class="output">
             <div class="container">
-                <h2 class="menu__title">Для управления панелью администратора перейдите по одному из пунктов меню</h2>
+                <table class="output__table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Дата/Время</th>
+                        <th>Статус</th>
+                        <th>Курьер</th>
+                        <th>Клиент</th>
+                        <th>Адрес</th>
+                        <th>Коммент</th>
+                        <th>Платеж</th>
+                        <th>Сумма</th>
+                    </tr>
+                    <?php foreach ($orders_array as $row) { ?>
+                     <tr>
+                         <td><?php echo "$row->order_id"; ?></td>
+                         <td><?php echo "$row->order_datetime"; ?></td>
+                         <td><?php echo "$row->order_status"; ?></td>
+                         <td><?php echo "$row->courier_phone"; ?></td>
+                         <td><?php echo "$row->user_phone"; ?></td>
+                         <td><?php echo "$row->user_address"; ?></td>
+                         <td><?php echo "$row->user_comment"; ?></td>
+                         <td><?php echo "$row->pay_method"; ?></td>
+                         <td><?php echo "$row->order_total"; ?></td>
+                     </tr>
+                    <?php } ?>
+                </table>
             </div>
         </section>
     </main>
