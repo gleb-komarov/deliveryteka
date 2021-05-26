@@ -70,10 +70,10 @@ if (!empty($_POST)) {
                 <div class="login__inner">
                     <form class="login__form" action="" method="post">
                         <h3 class="add__title">Введите данные курьера для добавления в БД:</h3>
-                        <input class="phone__input" type="text" name="phone" maxlength="16" placeholder="Номер телефона" title="Введите номер телефона">
+                        <input class="phone__input" type="text" name="phone" maxlength="18" placeholder="Номер телефона" title="Введите номер телефона">
                         <input class="login__input" type="text" name="name" maxlength="16" placeholder="Имя" title="Введите имя">
                         <input class="password__input" type="password" name="password" maxlength="16" placeholder="Пароль" title="Введите пароль">
-                        <button class="login__button" type="submit">Добавить</button>
+                        <button class="accept__button" type="submit">Добавить</button>
                         <?php getErrors($errors); $errors = [];?>
                     </form>
                 </div>

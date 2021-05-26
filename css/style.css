@@ -248,16 +248,18 @@ body {
     outline: none;
 }
 
-.login__input:focus {
+.login__input:focus, .password__input:focus, .phone__input:focus {
     border: 2px solid rgba(244, 67, 54, 0.85);
 }
 
-.password__input:focus {
+.login__input:hover, .password__input:hover, .phone__input:hover {
     border: 2px solid rgba(244, 67, 54, 0.85);
 }
 
-.login__button {
-    padding: 12px 112px 10px 112px;
+.accept__button {
+    width: 100%;
+
+    padding: 12px 0 10px 0;
     margin: 8px auto;
     border: 2px solid #242424;
     border-radius: 8px;
@@ -274,7 +276,7 @@ body {
     background-color: white;
 }
 
-.login__button:hover {
+.accept__button:hover {
     border: 2px solid rgba(244, 67, 54, 0.2);
     color: white;
     background-color: rgba(244, 67, 54, 0.85);

@@ -52,7 +52,7 @@ if (!empty($_POST)) {
                     <form class="login__form" action="" method="post">
                         <input class="login__input" type="text" name="login" maxlength="16" placeholder="Логин" title="Введите Ваш логин">
                         <input class="password__input" type="password" name="password" maxlength="16" placeholder="Пароль" title="Введите Ваш пароль">
-                        <button class="login__button" type="submit">Войти</button>
+                        <button class="accept__button" type="submit">Войти</button>
                         <p class="login__error"><?php echo $error; unset($error)?></p>
                     </form>
                 </div>
