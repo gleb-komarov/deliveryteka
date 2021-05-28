@@ -3,8 +3,8 @@ require '../db/config.php';
 
 $err_arr = [
     "0" => [
-        "user_id" => "",
-        "user_phone" => "",
+        "courier_id" => "",
+        "courier_phone" => "",
     ],
 ];
 

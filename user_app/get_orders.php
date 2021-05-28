@@ -22,7 +22,7 @@ function getOrdersByUserId($user_id) { // берем данные заказов
         FROM `orders`
         INNER JOIN `order_statuses` ON `order_statuses`.`order_status_id` = `orders`.`order_status_id`
         INNER JOIN `pay_methods` ON `pay_methods`.`pay_method_id` = `orders`.`pay_method_id`
-        WHERE `orders`.`user_id` = '$user_id';"
+        WHERE `orders`.`user_id` = '$user_id' ORDER BY `orders`.`order_id` DESC;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }

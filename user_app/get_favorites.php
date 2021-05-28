@@ -24,7 +24,7 @@ function getFavoritesByUserId($user_id) { // берем данные корин�
         INNER JOIN `medicine` ON `medicine`.`medicine_id` = `favorites`.`medicine_id`
         INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`
         INNER JOIN `medicine_categories` ON `medicine`.`medicine_category` = `medicine_categories`.`medicine_category_id`
-        WHERE `favorites`.`user_id` = '$user_id'"
+        WHERE `favorites`.`user_id` = '$user_id' ORDER  BY `favorites`.`favorit_id` DESC;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }

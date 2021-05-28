@@ -23,7 +23,7 @@ function getBaskeyByUserId($user_id) { // берем данные корины �
         FROM `basket`
         INNER JOIN `medicine` ON `medicine`.`medicine_id` = `basket`.`medicine_id`
         INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`
-        WHERE `basket`.`user_id` = '$user_id'"
+        WHERE `basket`.`user_id` = '$user_id' ORDER BY `basket`.`basket_id` DESC;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
