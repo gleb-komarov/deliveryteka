@@ -35,8 +35,7 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
                 </div>
                 <div class="under-header__inner">
                     <a class="nav__link" href="medicine.php"><p class="nav-panel__link">Препараты</p></a>
-                    <a class="nav__link" href="#">Добавить препарат</a>
-                    <a class="nav__link" href="#">Удалить препарат</a>
+                    <a class="nav__link" href="add_medicine.php">Добавить препарат</a>
                     <a class="nav__link" href="users.php">Пользователи</a>
                     <a class="nav__link" href="orders.php">Заказы</a>
                     <a class="nav__link" href="couriers.php">Курьеры</a>
@@ -61,6 +60,7 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
                             <th>Категория</th>
                             <th>Картинка</th>
                             <th>PDF</th>
+                            <th>Удалить</th>
                         </tr>
                         <?php foreach ($medicine_array as $row) { ?>
                          <tr>
@@ -78,6 +78,7 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
                              <?php } else {?>
                                <td>-</td>
                              <?php } ?>
+                             <td><a href="remove_medicine.php?medicine_id=<?php echo $row->medicine_id?>">Удалить</a></td>
                          </tr>
                         <?php } ?>
                     </table>

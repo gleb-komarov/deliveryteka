@@ -17,8 +17,8 @@
                     <img class="main-logo" src="img/logo.svg" alt="logo">
                 </a>
                 <nav class="main-navigation">
-                    <a class="nav__link" href="index.php"><p class="nav-panel__link">Главная</p></a>
-                    <a class="nav__link" href="covid.php">COVID-19</a>
+                    <a class="nav__link" href="index.php">Главная</a>
+                    <a class="nav__link" href="covid.php"><p class="nav-panel__link">COVID-19</p></a>
                     <a class="nav__link" href="#">Стать курьером</a>
                     <a class="nav__link" href="login/">Панель администратора</a>
                 </nav>
@@ -27,24 +27,13 @@
     </header>
 
     <main class="main">
-        <section class="intro">
+        <section class="covid-intro">
             <div class="container">
-                <div class="intro__inner">
+                <div class="covid-intro__inner">
                     <h1 class="intro__title">Лекарства доставим<br> без особых хлопот</h1>
                     <h2 class="intro__subtitle">Скачивай приложение DELIVERYTEKA<br> и заказывай лекарственные препараты на дом!</h2>
-                    <a class="main__button" href="deliveryteka.apk" download>СКАЧАТЬ</a>
                 </div>
             </div>
-            <div class="container">
-                <div class="benefits__inner">
-                    <table class="benefits__table">
-                        <tr class="benefits__values"><td>30</td><td>27</td><td>0</td><td>726</td></tr>
-                        <tr class="benefits__titles"><td>минут</td><td>аптек</td><td>рублей</td><td>отзывов</td></tr>
-                        <tr class="benefits__subtitles"><td>Среднее время<br> доставки</td><td>Работает<br> в доставке</td><td>За первый<br> заказ</td><td>Довольных<br> клиентов</td></tr>
-                    </table>
-                </div>
-            </div>
-        </section>
     </main>
 
 </body>

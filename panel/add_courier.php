@@ -55,8 +55,7 @@ if (!empty($_POST)) {
                 </div>
                 <div class="under-header__inner">
                     <a class="nav__link" href="medicine.php">Препараты</a>
-                    <a class="nav__link" href="#">Добавить препарат</a>
-                    <a class="nav__link" href="#">Удалить препарат</a>
+                    <a class="nav__link" href="add_medicine.php">Добавить препарат</a>
                     <a class="nav__link" href="users.php">Пользователи</a>
                     <a class="nav__link" href="orders.php">Заказы</a>
                     <a class="nav__link" href="couriers.php">Курьеры</a>

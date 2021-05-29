@@ -31,7 +31,8 @@ function getMedicine() {
         `medicine_categories`.`medicine_category_name` AS `medicine_category`, `medicine_forms`.`medicine_form_name` AS `medicine_form`
         FROM `medicine`
         INNER JOIN `medicine_categories` ON `medicine`.`medicine_category` = `medicine_categories`.`medicine_category_id`
-        INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`;"
+        INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`
+        ORDER BY `medicine`.`medicine_id` DESC;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
@@ -51,7 +52,7 @@ function getUsers() {
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `users`.`user_id`, `users`.`user_phone`, `users`.`user_name`, `users`.`user_address`, `users`.`med_card_number`
-        FROM `users`;");
+        FROM `users` ORDER BY `users`.`user_id` DESC;");
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
@@ -59,7 +60,7 @@ function getCouriers() {
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `couriers`.`courier_id`, `couriers`.`courier_phone`, `couriers`.`courier_name`, `couriers`.`is_online`
-        FROM `couriers`");
+        FROM `couriers` ORDER BY `couriers`.`courier_id` DESC;");
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
@@ -71,7 +72,8 @@ function getOrders() {
         FROM `orders`
         INNER JOIN `order_statuses` ON `order_statuses`.`order_status_id` = `orders`.`order_status_id`
         INNER JOIN `couriers` ON `couriers`.`courier_id` = `orders`.`courier_id`
-        INNER JOIN `pay_methods` ON `pay_methods`.`pay_method_id` = `orders`.`pay_method_id`;"
+        INNER JOIN `pay_methods` ON `pay_methods`.`pay_method_id` = `orders`.`pay_method_id`
+        ORDER BY `orders`.`order_id` DESC;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
@@ -90,6 +92,18 @@ function registerCourier($phone, $password, $name)
     $pdo = getPdo(); // подключаемся к БД
     $query = $pdo->query("INSERT INTO  `couriers` (`courier_id` ,`courier_phone` ,`courier_password`, `courier_name`, `is_online`) 
     VALUES (NULL , '$phone', '$pass_hash', '$name', 0);"); // запрос
+}
+
+function getMedicineForms() {
+    $pdo = getPdo();
+    $query = $pdo->query("SELECT * FROM `medicine_forms`");
+    return $query->fetchAll(PDO::FETCH_OBJ);
+}
+
+function getMedicineCategories() {
+    $pdo = getPdo();
+    $query = $pdo->query("SELECT * FROM `medicine_categories`");
+    return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
 function getErrors($errors) {
