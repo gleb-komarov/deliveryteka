@@ -34,7 +34,7 @@ $deaths = $response->deaths;
             </div>
         </section>
     </header>
-    <main class="main">
+    <main class="courier-main">
         <section class="courier-intro">
             <div class="container">
                 <div class="courier-intro__inner">
@@ -92,6 +92,10 @@ $deaths = $response->deaths;
                                 За информацией нужно будет обратиться в службу поддержки.</p>
                         </details>
                     </div>
+                </div>
+                <div class="courier-app__inner">
+                    <h2 class="courier-app__title">Приложение DELIVERYTEKA-Courier</h2>
+                    <p class="courier-app__info">Скачать мобильное приложение DELIVERYTEKA-Courier можно по <a class="courier-app__link" href="">ссылке</a>.</p>
                 </div>
             </div>
     </main>

@@ -42,7 +42,7 @@ body {
     background-size: cover;
 }
 
-.intro__inner, .covid-intro__inner, courier-intro__inner {
+.intro__inner, .covid-intro__inner, .courier-intro__inner {
     width: 100%;
     margin-top: 100px;
     margin-left: auto;
@@ -58,10 +58,6 @@ body {
 
 .covid-intro, .courier-intro {
     width: 100%;
-
-    background: url("../img/bg.png") center no-repeat;
-    -webkit-background-size: cover;
-    background-size: cover;
 }
 
 .covid__title, .courier__title {
@@ -540,7 +536,7 @@ input:hover, select:hover, label:hover {
     margin-top: 35px;
 }
 
-.symptoms__title, .prevention__title, .popular-questions__title {
+.symptoms__title, .prevention__title, .popular-questions__title, .courier-app__title {
     margin: 5px;
     font-size: 24px;
     text-align: center;
@@ -575,7 +571,7 @@ input:hover, select:hover, label:hover {
     color: rgba(244, 67, 54, 0.85)
 }
 
-.popular-questions__inner {
+.popular-questions__inner, .courier-app__inner {
     margin-top: 40px;
 }
 
@@ -588,7 +584,7 @@ details > summary {
 }
 
 details summary:before {
-    padding: 0px 7px 10px 0px;
+    padding: 0 7px 25px 0;
     content: url("../img/arrow_down.svg");
 
     transition: color .2s linear;
@@ -604,11 +600,24 @@ details[open] summary:before {
     text-align: center;
 }
 
-.question__title {
+.question__title, .courier-app__info {
+    text-align: center;
     font-weight: 500;
     font-size: 18px;
 }
 
 .question__info {
     cursor: text;
+}
+
+.courier-app__link {
+    text-decoration: none;
+    font-weight: 600;
+    color: #242424;
+
+    transition: color .2s linear;
+}
+
+.courier-app__link:hover {
+    color: rgba(244, 67, 54, 0.85)
 }

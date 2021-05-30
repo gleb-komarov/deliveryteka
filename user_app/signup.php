@@ -39,7 +39,7 @@ function returnUserIdbyPhone($phone) {
     }
 
 if (empty($errors)) {
-    $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+    $pass_hash = password_hash($password, PASSWORD_BCRYPT);
     $pdo = getPdo(); // подключаемся к БД
     $query = $pdo->query("INSERT INTO  `users` (`user_id` ,`user_phone` ,`user_password`, `user_name`, `user_address`, `med_card_number`) 
                             VALUES (NULL , '$phone', '$pass_hash', NULL, NULL, NULL);"); // запрос
