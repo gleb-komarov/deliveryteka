@@ -29,7 +29,7 @@ $deaths = $response->deaths;
                 <nav class="main-navigation">
                     <a class="nav__link" href="index.php">Главная</a>
                     <a class="nav__link" href="covid.php"><p class="nav-panel__link">COVID-19</p></a>
-                    <a class="nav__link" href="#">Стать курьером</a>
+                    <a class="nav__link" href="courier.php">Стать курьером</a>
                     <a class="nav__link" href="login/">Панель администратора</a>
                 </nav>
             </div>

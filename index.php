@@ -19,7 +19,7 @@
                 <nav class="main-navigation">
                     <a class="nav__link" href="index.php"><p class="nav-panel__link">Главная</p></a>
                     <a class="nav__link" href="covid.php">COVID-19</a>
-                    <a class="nav__link" href="#">Стать курьером</a>
+                    <a class="nav__link" href="courier.php">Стать курьером</a>
                     <a class="nav__link" href="login/">Панель администратора</a>
                 </nav>
             </div>
