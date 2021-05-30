@@ -48,10 +48,18 @@ body {
     background-size: cover;
 }
 
-.intro__inner {
+.covid-intro__inner {
     width: 100%;
     margin-top: 100px;
     margin-left: auto;
+}
+
+.covid__title {
+    margin-top: 140px;
+
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .error__title {
@@ -476,4 +484,57 @@ input:hover, select:hover, label:hover {
 
     font-weight: 600;
     text-align: center;
+}
+
+.cases__inner {
+    padding-top: 15px;
+
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.cases, .recovered, .deaths {
+    margin: 0 auto;
+}
+
+.case__title {
+    margin: 5px;
+    font-size: 36px;
+}
+
+.case__subtitle {
+    margin: 5px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.cases {
+    color: rgba(244, 67, 54, 0.85);;
+}
+
+.recovered {
+    color: rgba(87, 215, 157, 0.85);
+}
+
+.deaths {
+    color: rgba(138, 138, 138, 1);
+}
+
+.symptoms__inner, .prevention__inner {
+    margin-top: 35px;
+}
+
+.symptoms__title, .prevention__title {
+    margin: 5px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.symptom-item {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 10px auto;
 }

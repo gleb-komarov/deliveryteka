@@ -1,3 +1,11 @@
+<?php
+
+$response = file_get_contents("https://corona.lmao.ninja/v3/covid-19/countries/belarus");
+
+var_dump($response);
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -30,8 +38,37 @@
         <section class="covid-intro">
             <div class="container">
                 <div class="covid-intro__inner">
-                    <h1 class="intro__title">Лекарства доставим<br> без особых хлопот</h1>
-                    <h2 class="intro__subtitle">Скачивай приложение DELIVERYTEKA<br> и заказывай лекарственные препараты на дом!</h2>
+                    <h2 class="covid__title">Ситуация с COVID-19 в Республике Беларусь</h2>
+                    <div class="cases__inner">
+                        <div class="cases">
+                            <h2 class="case__title">392629</h2>
+                            <h3 class="case__subtitle">случаев заболеваний</h3>
+                        </div>
+                        <div class="recovered">
+                            <h2 class="case__title">383380</h2>
+                            <h3 class="case__subtitle">случаев выздоровления</h3>
+                        </div>
+                        <div class="deaths">
+                            <h2 class="case__title">2831</h2>
+                            <h3 class="case__subtitle">смертельных случаев</h3>
+                        </div>
+                    </div>
+                    <div class="symptoms__inner">
+                        <h3 class="symptoms__title">Часто наблюдаемые сиптомы:</h3>
+                        <p class="symptom-item">сухой кашель</p>
+                        <p class="symptom-item">утомляемость</p>
+                        <p class="symptom-item">повышение температуры</p>
+                    </div>
+                    <div class="prevention__inner">
+                        <h3 class="prevention__title">Профилактика COVID-19:</h3>
+                        <p class="symptom-item">Соблюдайте правила гигиены рук.</p>
+                        <p class="symptom-item">Держитесь на безопасном расстоянии от чихающих или кашляющих людей.</p>
+                        <p class="symptom-item">Носите маску, когда находитесь в окружении других людей.</p>
+                        <p class="symptom-item">Не прикасайтесь руками к глазам, рту или носу.</p>
+                        <p class="symptom-item">При кашле или чихании прикрывайте рот и нос локтевым сгибом или платком.</p>
+                        <p class="symptom-item">Если вы чувствуете недомогание, оставайтесь дома.</p>
+                        <p class="symptom-item">В случае повышения температуры, появления кашля и одышки обратитесь за медицинской помощью.</p>
+                    </div>
                 </div>
             </div>
     </main>
