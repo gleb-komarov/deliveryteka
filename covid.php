@@ -1,8 +1,10 @@
 <?php
 
-$response = file_get_contents("https://corona.lmao.ninja/v3/covid-19/countries/belarus");
+$response = json_decode(file_get_contents("https://corona.lmao.ninja/v3/covid-19/countries/belarus"));
 
-var_dump($response);
+$cases = $response->cases;
+$recovered = $response->recovered;
+$deaths = $response->deaths;
 
 ?>
 
@@ -41,15 +43,15 @@ var_dump($response);
                     <h2 class="covid__title">Ситуация с COVID-19 в Республике Беларусь</h2>
                     <div class="cases__inner">
                         <div class="cases">
-                            <h2 class="case__title">392629</h2>
+                            <h2 class="case__title"><?php echo $cases ?></h2>
                             <h3 class="case__subtitle">случаев заболеваний</h3>
                         </div>
                         <div class="recovered">
-                            <h2 class="case__title">383380</h2>
+                            <h2 class="case__title"><?php echo $recovered ?></h2>
                             <h3 class="case__subtitle">случаев выздоровления</h3>
                         </div>
                         <div class="deaths">
-                            <h2 class="case__title">2831</h2>
+                            <h2 class="case__title"><?php echo $deaths ?></h2>
                             <h3 class="case__subtitle">смертельных случаев</h3>
                         </div>
                     </div>
