@@ -43,7 +43,8 @@ if (!empty($_POST)) {
     <link rel="shortcut icon" href="../img/shortcut_logo.svg" type="image/vsg">
 </head>
 
-<body>
+<body onload="myFunction()">
+    <div id="loader"></div>
     <header class="header">
         <section class="container">
                 <div class="header__inner">
@@ -63,8 +64,7 @@ if (!empty($_POST)) {
                 </div>
         </section>
     </header>
-
-    <main class="main">
+    <main class="main animate-bottom" style="display:none;" id="content"">
         <section class="login">
             <div class="container">
                 <div class="login__inner">
@@ -85,5 +85,6 @@ if (!empty($_POST)) {
             </div>
         </section>
     </main>
+    <script src="../js/preloader.js"></script>
 </body>
 </html>

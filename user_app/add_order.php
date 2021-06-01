@@ -23,7 +23,7 @@ function isExistUser($user_id) // проверка существования us
 function addOrder ($user_id, $datetime, $user_name, $user_address, $user_phone, $user_comment, $pay_method, $total) {
     $pdo = getPdo();
     $query = $pdo->query("INSERT INTO `orders` (`order_id` , `order_datetime`, `courier_id` ,`order_status_id`, `user_id`, `user_name`, `user_address`, `user_phone`, `user_comment`, `pay_method_id`, `order_total`) 
-    VALUES (NULL , '$datetime', 1, 2, '$user_id', '$user_name', '$user_address', '$user_phone', '$user_comment', '$pay_method', '$total');");
+    VALUES (NULL , '$datetime', NULL, 2, '$user_id', '$user_name', '$user_address', '$user_phone', '$user_comment', '$pay_method', '$total');");
 }
 
 function getOrderId ($user_id) {

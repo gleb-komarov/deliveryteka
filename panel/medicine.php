@@ -23,7 +23,8 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
     <link rel="shortcut icon" href="../img/shortcut_logo.svg" type="image/vsg">
 </head>
 
-<body>
+<body onload="myFunction()">
+    <div id="loader"></div>
     <header class="header">
         <section class="container">
                 <div class="header__inner">
@@ -44,7 +45,7 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
         </section>
     </header>
 
-    <main class="main">
+    <main class="main animate-bottom" style="display:none;" id="content">
         <section class="output">
             <div class="container">
                 <div class="output__inner">
@@ -86,5 +87,6 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
             </div>
         </section>
     </main>
+    <script src="../js/preloader.js"></script>
 </body>
 </html>

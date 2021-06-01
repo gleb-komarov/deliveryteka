@@ -23,7 +23,8 @@ $orders_array = getOrders();
     <link rel="shortcut icon" href="../img/shortcut_logo.svg" type="image/vsg">
 </head>
 
-<body>
+<body onload="myFunction()">
+    <div id="loader"></div>
     <header class="header">
         <section class="container">
                 <div class="header__inner">
@@ -44,7 +45,7 @@ $orders_array = getOrders();
         </section>
     </header>
 
-    <main class="main">
+    <main class="main animate-bottom" style="display:none;" id="content"">
         <section class="output">
             <div class="container">
                 <table class="output__table">
@@ -76,5 +77,6 @@ $orders_array = getOrders();
             </div>
         </section>
     </main>
+    <script src="../js/preloader.js"></script>
 </body>
 </html>

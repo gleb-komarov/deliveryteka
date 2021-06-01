@@ -22,8 +22,8 @@ $couriers_array = getCouriers();
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../img/shortcut_logo.svg" type="image/vsg">
 </head>
-
-<body>
+<body onload="myFunction()">
+    <div id="loader"></div>
     <header class="header">
         <section class="container">
                 <div class="header__inner">
@@ -43,8 +43,7 @@ $couriers_array = getCouriers();
                 </div>
         </section>
     </header>
-
-    <main class="main">
+    <main class="main animate-bottom" style="display:none;" id="content">
         <section class="output">
             <div class="container">
                 <table class="output__table">
@@ -71,5 +70,6 @@ $couriers_array = getCouriers();
             </div>
         </section>
     </main>
+    <script src="../js/preloader.js"></script>
 </body>
 </html>
