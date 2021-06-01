@@ -22,7 +22,6 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../img/shortcut_logo.svg" type="image/vsg">
 </head>
-
 <body onload="myFunction()">
     <div id="loader"></div>
     <header class="header">
@@ -44,7 +43,6 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
                 </div>
         </section>
     </header>
-
     <main class="main animate-bottom" style="display:none;" id="content">
         <section class="output">
             <div class="container">
