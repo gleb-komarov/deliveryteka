@@ -52,6 +52,8 @@ $couriers_array = getCouriers();
                         <th>Номер телефона</th>
                         <th>Имя</th>
                         <th>На смене</th>
+                        <th>Смена</th>
+                        <th>Удалить</th>
                     </tr>
                     <?php foreach ($couriers_array as $row) { ?>
                      <tr>
@@ -60,10 +62,13 @@ $couriers_array = getCouriers();
                          <td><?php echo "$row->courier_name"; ?></td>
                          <?php
                             if ($row->is_online == 0) { ?>
-                         <td>Нет</td>
+                         <td>-</td>
+                         <td>-</td>
                          <?php } else { ?>
                          <td>Да</td>
+                         <td><a href="offline_courier.php?courier_id=<?php echo $row->courier_id?>">Закончить</a></td>
                          <?php } ?>
+                         <td><a href="remove_courier.php?courier_id=<?php echo $row->courier_id?>">Удалить</a></td>
                      </tr>
                     <?php } ?>
                 </table>

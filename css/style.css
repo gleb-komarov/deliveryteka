@@ -324,19 +324,18 @@ input:hover, select:hover, label:hover {
 }
 
 .output {
+    margin: 0 auto;
     width: 100%;
 }
 
 .output__inner {
-    display: flex;
-    justify-content: center;
+    margin: auto;
     width: 100%;
 }
 
 .output__table {
-    table-layout: auto;
     width: 100%;
-    margin: 150px auto 100px auto;
+    margin: 150px auto 50px auto;
 
     text-align: center;
     border-radius: 8px;
@@ -344,14 +343,12 @@ input:hover, select:hover, label:hover {
 }
 
 .output__table th {
-    width: 100%;
     color: white;
     background-color: rgba(244, 67, 54, 0.85);
-    padding: 10px 20px;
+    padding: 10px 15px;
 }
 
 .output__table td {
-    width: 100%;
     padding: 10px;
 }
 
@@ -383,6 +380,12 @@ input:hover, select:hover, label:hover {
 .output__table a {
     color: #242424;
     text-decoration: none;
+
+    transition: color .2s ease-in-out;
+}
+
+.output__table a:hover {
+    color: rgba(244, 67, 54, 0.85);
 }
 
 .output__img {
@@ -663,3 +666,4 @@ details[open] summary:before {
     from{ bottom:-100px; opacity:0 }
     to{ bottom:0; opacity:1 }
 }
+

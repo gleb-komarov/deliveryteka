@@ -22,7 +22,6 @@ $orders_array = getOrders();
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../img/shortcut_logo.svg" type="image/vsg">
 </head>
-
 <body onload="myFunction()">
     <div id="loader"></div>
     <header class="header">
@@ -44,7 +43,6 @@ $orders_array = getOrders();
                 </div>
         </section>
     </header>
-
     <main class="main animate-bottom" style="display:none;" id="content"">
         <section class="output">
             <div class="container">
@@ -61,22 +59,47 @@ $orders_array = getOrders();
                         <th>Сумма</th>
                     </tr>
                     <?php foreach ($orders_array as $row) { ?>
-                     <tr>
-                         <td><?php echo "$row->order_id"; ?></td>
-                         <td><?php echo "$row->order_datetime"; ?></td>
-                         <td><?php echo "$row->order_status"; ?></td>
-                         <td><?php echo "$row->courier_phone"; ?></td>
-                         <td><?php echo "$row->user_phone"; ?></td>
-                         <td><?php echo "$row->user_address"; ?></td>
-                         <td><?php echo "$row->user_comment"; ?></td>
-                         <td><?php echo "$row->pay_method"; ?></td>
-                         <td><?php echo "$row->order_total"; ?></td>
-                     </tr>
+                        <tr>
+                            <td><?php echo "$row->order_id"; ?></td>
+                            <td><?php echo "$row->order_datetime"; ?></td>
+                            <td><?php echo "$row->order_status"; ?></td>
+                            <td><?php echo "$row->courier_phone"; ?></td>
+                            <td><?php echo "$row->user_phone"; ?></td>
+                            <td><?php echo "$row->user_address"; ?></td>
+                            <td><?php echo "$row->user_comment"; ?></td>
+                            <td><?php echo "$row->pay_method"; ?></td>
+                            <td><?php echo "$row->order_total"; ?></td>
+<!--                            --><?php //$order_content_array = addImageAndPdfInMedicine(getOrderContent($row->order_id)); $order_id = $row->order_id ?>
+                        </tr>
+<!--                        order content view-->
+<!--                    --><?php //foreach ($order_content_array as $row) { ?>
+<!--                            <tr class="order_content" id="content_--><?php //echo "$order_id"; ?><!--">-->
+<!--                                <td>--><?php //echo "$row->medicine_id"; ?><!--</td>-->
+<!--                                <td>--><?php //echo "$row->medicine_name"; ?><!--</td>-->
+<!--                                <td>--><?php //echo "$row->medicine_price"; ?><!--</td>-->
+<!--                                <td>--><?php //echo "$row->medicine_country"; ?><!--</td>-->
+<!--                                <td>--><?php //echo "$row->medicine_pack"; ?><!--</td>-->
+<!--                                <td>--><?php //echo "$row->medicine_dosage"; ?><!--</td>-->
+<!--                                <td>--><?php //echo "$row->medicine_form"; ?><!--</td>-->
+<!--                                <td><a href="--><?php //echo "$row->medicine_img";?><!--" target="_blank"><img class="output__img" src="--><?php //echo "$row->medicine_img";?><!--" width="40" height="40" alt="Картинка"></a></td>-->
+<!--                                --><?php //if ( file_exists($row->medicine_pdf)) { ?>
+<!--                                    <td><a href="--><?php //echo "$row->medicine_pdf"; ?><!--" target="_blank">PDF-файл</a></td>-->
+<!--                                --><?php //} else {?>
+<!--                                    <td>-</td>-->
+<!--                                --><?php //} ?>
+<!--                            </tr>-->
+<!--                        --><?php //} ?>
                     <?php } ?>
                 </table>
             </div>
         </section>
     </main>
     <script src="../js/preloader.js"></script>
+    <script>
+        function showhide(id) {
+            var e = document.getElementById(id);
+            e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>

@@ -106,6 +106,19 @@ function getMedicineCategories() {
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
+function getOrderContent($order_id) {
+    $pdo = getPdo();
+    $query = $pdo->query(
+        "SELECT `medicine`.`medicine_id`, `medicine`.`medicine_name`, `medicine`.`medicine_price`, `medicine`.`medicine_pack`,
+       `medicine`.`medicine_dosage`, `medicine`.`medicine_country`, `medicine`.`medicine_description`, `order_content`.`count`, `order_content`.`sum`, `medicine_forms`.`medicine_form_name` AS `medicine_form`
+        FROM `order_content`
+        INNER JOIN `medicine` ON `medicine`.`medicine_id` = `order_content`.`medicine_id`
+        INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`
+        WHERE `order_content`.`order_id` = '$order_id'"
+    );
+    return $query->fetchAll(PDO::FETCH_OBJ);
+}
+
 function getErrors($errors) {
     if (!empty($errors)) {
         echo "<ul class='error__list'>";
