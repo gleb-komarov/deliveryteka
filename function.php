@@ -73,7 +73,7 @@ function getOrders() {
         INNER JOIN `order_statuses` ON `order_statuses`.`order_status_id` = `orders`.`order_status_id`
         INNER JOIN `couriers` ON `couriers`.`courier_id` = `orders`.`courier_id`
         INNER JOIN `pay_methods` ON `pay_methods`.`pay_method_id` = `orders`.`pay_method_id`
-        ORDER BY `orders`.`order_id` DESC;"
+        ORDER BY `orders`.`order_datetime` DESC;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }

@@ -12,6 +12,43 @@ else {
 $medicine_form_array = getMedicineForms();
 $medicine_category_array = getMedicineCategories();
 
+if (!empty($_POST)) {
+    $errors = []; // создаем массив ошибок
+    $medicine_name = isset($_POST['medicine_name']) ? trim($_POST['medicine_name']) : '';
+    $medicine_price = isset($_POST['medicine_price']) ? trim($_POST['medicine_price']) : '';
+    $medicine_country = isset($_POST['medicine_country']) ? trim($_POST['medicine_country']) : '';
+    $medicine_pack = isset($_POST['medicine_pack']) ? trim($_POST['medicine_pack']) : '';
+    $medicine_dosage = isset($_POST['medicine_dosage']) ? trim($_POST['medicine_dosage']) : '';
+    $medicine_form= isset($_POST['medicine_form']) ? trim($_POST['medicine_form']) : '';
+    $medicine_category = isset($_POST['medicine_category']) ? trim($_POST['medicine_category']) : '';
+    $medicine_img = $_FILES["medicine_img"]["name"];
+    if (!$medicine_name) {
+        $errors[] = "Введите название препарата";
+    }
+    if (!$medicine_price) {
+        $errors[] = "Введите цену препарата";
+    }
+    if (!$medicine_country) {
+        $errors[] = "Введите страну препарата";
+    }
+    if (!$medicine_pack) {
+        $errors[] = "Введите упаковку препарата";
+    }
+    if (!$medicine_dosage) {
+        $errors[] = "Введите дозировку препарата";
+    }
+    if (!$medicine_form) {
+        $errors[] = "Выберите форму препарата";
+    }
+    if (!$medicine_category) {
+        $errors[] = "Выберите категорию препарата";
+    }
+    if (empty($errors)) { // если ошибок нету
+        $result = "<p class='error__list'>Вы успешно добавили курьера , тел: !</p>";
+    }
+    echo "$medicine_name $medicine_price $medicine_country $medicine_pack $medicine_dosage $medicine_form $medicine_category $medicine_img";
+}
+
 ?>
 
 <!DOCTYPE html>

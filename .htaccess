@@ -1,0 +1,5 @@
+RewriteRule (.*)\.php$ $1 [R=301,L]
+#404 Страница не найдена
+ErrorDocument 404 https://komaroff-site.000webhostapp.com/404.php
+#500
+ErrorDocument 500 https://komaroff-site.000webhostapp.com/500.php
