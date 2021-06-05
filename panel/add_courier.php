@@ -70,7 +70,7 @@ if (!empty($_POST)) {
                 <div class="login__inner">
                     <form class="login__form" action="" method="post">
                         <h3 class="add__title">Введите данные курьера для добавления в БД:</h3>
-                        <input class="phone__input" type="text" name="phone" maxlength="18" placeholder="Номер телефона" title="Введите номер телефона">
+                        <input class="phone__input phone_mask" type="text" name="phone" maxlength="18" placeholder="Номер телефона" title="Введите номер телефона">
                         <input class="login__input" type="text" name="name" maxlength="16" placeholder="Имя" title="Введите имя">
                         <input class="password__input" type="text" name="password" maxlength="16" placeholder="Пароль" title="Введите пароль">
                         <button class="accept__button" type="submit">Добавить</button>
@@ -86,5 +86,10 @@ if (!empty($_POST)) {
         </section>
     </main>
     <script src="../js/preloader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js" type="text/javascript"></script>
+    <script>
+        $(".phone_mask").mask("+375 (99)999-99-99");
+    </script>
 </body>
 </html>

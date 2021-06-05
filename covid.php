@@ -1,10 +1,18 @@
 <?php
 
-$response = json_decode(file_get_contents("https://corona.lmao.ninja/v3/covid-19/countries/belarus"));
+$content = @file_get_contents("https://corona.lmao.ninja/v3/covid-19/countries/belarus");
 
-$cases = $response->cases;
-$recovered = $response->recovered;
-$deaths = $response->deaths;
+if ($content === FALSE) {
+    $cases = "Загрузка...";
+    $recovered = "Загрузка...";
+    $deaths = "Загрузка...";
+}
+else {
+    $response = json_decode(file_get_contents("https://corona.lmao.ninja/v3/covid-19/countries/belarus"));
+    $cases = $response->cases;
+    $recovered = $response->recovered;
+    $deaths = $response->deaths;
+}
 
 ?>
 
