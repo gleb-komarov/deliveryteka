@@ -55,6 +55,9 @@ $deaths = $response->deaths;
                             <h3 class="case__subtitle">смертельных случаев</h3>
                         </div>
                     </div>
+                    <div class="source__inner">
+                        <a href="https://t.me/minzdravbelarus" class="source__link">Источник: Министерство здравоохранения Республики Беларусь</a>
+                    </div>
                     <div class="symptoms__inner">
                         <h3 class="symptoms__title">Часто наблюдаемые сиптомы:</h3>
                         <p class="symptom-item">сухой кашель</p>

@@ -40,19 +40,19 @@ $deaths = $response->deaths;
                 <div class="courier-intro__inner">
                     <h2 class="courier__title">Как стать курьером DELIVERYTEKA?</h2>
                     <div class="steps__inner">
-                        <div class="step">
+                        <div class="step-one">
                             <h2 class="step__title">1</h2>
                             <p class="step__info">Позвоните оператору<br> по номеру:<br> <a class="phone__link" href="tel:+375(29)8877361">+375(29)88-77-361</a></p>
                         </div>
-                        <div class="step">
+                        <div class="step-two">
                             <h2 class="step__title">2</h2>
                             <p class="step__info">Приедьте в офис<br> с пакетом документов</p>
                         </div>
-                        <div class="step">
+                        <div class="step-three">
                             <h2 class="step__title">3</h2>
                             <p class="step__info">Пройдите небольшой тест<br> и посмотрите обучающее видео</p>
                         </div>
-                        <div class="step">
+                        <div class="step-four">
                             <h2 class="step__title">4</h2>
                             <p class="step__info">Станьте курьером доставки DELIVERYTEKA,<br> получите доступ в приложение,<br> всё необходимое - и вперёд,<br> на первый заказ!</p>
                         </div>
