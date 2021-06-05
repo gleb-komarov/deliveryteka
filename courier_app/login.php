@@ -4,8 +4,7 @@ require '../db/config.php';
 $err_arr = [
     "0" => [
         "courier_id" => "",
-        "courier_phone" => "",
-        "courier_password" => ""
+        "courier_phone" => ""
     ],
 ];
 
@@ -32,7 +31,7 @@ function loginUser($phone, $password)
 
 function returnCourierIdbyPhone($phone) {
     $pdo = getPdo();
-    $query = $pdo->query("SELECT `courier_id`, `courier_phone`, `courier_password` FROM `couriers` WHERE `courier_phone` = '$phone';");
+    $query = $pdo->query("SELECT `courier_id`, `courier_phone` FROM `couriers` WHERE `courier_phone` = '$phone';");
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
