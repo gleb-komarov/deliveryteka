@@ -52,6 +52,9 @@ $couriers_array = getCouriers();
                         <th>Номер телефона</th>
                         <th>Имя</th>
                         <th>На смене</th>
+                        <th>Активный заказ</th>
+                        <th>Всего смен</th>
+                        <th>Всего часов</th>
                         <th>Смена</th>
                         <th>Удалить</th>
                     </tr>
@@ -63,10 +66,22 @@ $couriers_array = getCouriers();
                          <?php
                             if ($row->is_online == 0) { ?>
                          <td>-</td>
-                         <td>-</td>
                          <?php } else { ?>
                          <td>Да</td>
-                         <td><a href="offline_courier.php?courier_id=<?php echo $row->courier_id?>">Закончить</a></td>
+                         <?php } ?>
+                         <?php
+                         if ($row->active_order_id == 0) { ?>
+                             <td>-</td>
+                         <?php } else { ?>
+                             <td><?php echo "$row->active_order_id"; ?></td>
+                         <?php } ?>
+                         <td><?php echo "$row->all_shifts"; ?></td>
+                         <td><?php echo "$row->all_hours"; ?></td>
+                         <?php
+                         if ($row->is_online == 0) { ?>
+                             <td>-</td>
+                         <?php } else { ?>
+                             <td><a href="offline_courier.php?courier_id=<?php echo $row->courier_id?>">Закончить</a></td>
                          <?php } ?>
                          <td><a href="remove_courier.php?courier_id=<?php echo $row->courier_id?>">Удалить</a></td>
                      </tr>

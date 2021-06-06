@@ -25,15 +25,15 @@ if (isOnlineCourier($courier_id)) {
 
     $work_shift = getCourierWorkShift($courier_id);
 
-    $response = array(
-        "result" =>$work_shift,
-    );
-
-    print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    print_r(json_encode($work_shift, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 } else {
-    $response = array(
-        "result" =>false,
-    );
+
+    $response = [
+        "0" => [
+            "start_work_shift" => "",
+            "end_work_shift" => "",
+        ],
+    ];
 
     print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 }

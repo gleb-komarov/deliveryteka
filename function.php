@@ -59,7 +59,7 @@ function getUsers() {
 function getCouriers() {
     $pdo = getPdo();
     $query = $pdo->query(
-        "SELECT `couriers`.`courier_id`, `couriers`.`courier_phone`, `couriers`.`courier_name`, `couriers`.`is_online`
+        "SELECT `couriers`.`courier_id`, `couriers`.`courier_phone`, `couriers`.`courier_name`, `couriers`.`is_online`, `couriers`.`active_order_id`, `couriers`.`all_shifts`, `couriers`.`all_hours`
         FROM `couriers` ORDER BY `couriers`.`courier_id` DESC;");
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
