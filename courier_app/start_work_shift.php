@@ -23,6 +23,12 @@ function startWorkShift($courier_id, $start_sql, $end_sql) {
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
+function updateCourierInfo ($courier_id, $hours) {
+    $pdo = getPdo();
+    $query = $pdo->query("UPDATE `couriers` SET `is_online`= 1 WHERE  `courier_id` = '$courier_id';"); // выполнение sql запроса
+    return $query->fetchAll(PDO::FETCH_OBJ);
+}
+
 if (isExistCourier($courier_id)) {
     $start = date("H")+1 . date(":i") ;   // вычисляам начало смены и конец в формате для клиента и в формате datetime sql
     $end = date("H")+1+$hours . date(":i");
@@ -33,8 +39,8 @@ if (isExistCourier($courier_id)) {
     startWorkShift($courier_id, $start_sql, $end_sql);
 
     $response = array(
-        "start_shift" =>$start,
-        "end_shift" =>$end
+        "start_work_shift" =>$start,
+        "end_work_shift" =>$end
     );
 
     print_r(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
