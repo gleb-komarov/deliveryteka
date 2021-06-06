@@ -20,10 +20,10 @@ function isExistUser($user_id) // проверка существования us
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-function addOrder ($user_id, $datetime, $user_name, $user_address, $user_phone, $user_comment, $pay_method, $total) {
+function addOrder ($user_id, $datetime, $user_name, $user_address, $user_phone, $user_comment, $pay_method, $total, $courier_salary) {
     $pdo = getPdo();
-    $query = $pdo->query("INSERT INTO `orders` (`order_id` , `order_datetime`, `courier_id` ,`order_status_id`, `user_id`, `user_name`, `user_address`, `user_phone`, `user_comment`, `pay_method_id`, `order_total`) 
-    VALUES (NULL , '$datetime', NULL, 2, '$user_id', '$user_name', '$user_address', '$user_phone', '$user_comment', '$pay_method', '$total');");
+    $query = $pdo->query("INSERT INTO `orders` (`order_id` , `order_datetime`, `courier_id`, `courier_salary` ,`order_status_id`, `user_id`, `user_name`, `user_address`, `user_phone`, `user_comment`, `pay_method_id`, `order_total`) 
+    VALUES (NULL , '$datetime', NULL, '$courier_salary', 2, '$user_id', '$user_name', '$user_address', '$user_phone', '$user_comment', '$pay_method', '$total');");
 }
 
 function getOrderId ($user_id) {
@@ -58,8 +58,9 @@ if (isExistUser($user_id)) { //проверяем если user и medicine су
         $total += $row->sum;
     }
     round($total,2);
+    $courier_salary = round($total * 0.15,2);
 
-    addOrder($user_id, $datetime, $user_name, $user_address, $user_phone, $user_comment, $pay_method, $total); // добавляем заказ в БД
+    addOrder($user_id, $datetime, $user_name, $user_address, $user_phone, $user_comment, $pay_method, $total, $courier_salary); // добавляем заказ в БД
     $order_array = getOrderId($user_id);
     $order_id = 0;
     foreach ($order_array as $row) {
