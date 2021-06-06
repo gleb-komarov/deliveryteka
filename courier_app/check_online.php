@@ -16,7 +16,7 @@ function isOnlineCourier($courier_id) {
 
 function getCourierWorkShift($courier_id) {
     $pdo = getPdo();
-    $query = $pdo->query("SELECT `work_shifts`.`start_work_shift`, `work_shifts`.`end_work_shift` FROM `work_shifts` 
+    $query = $pdo->query("SELECT SUBSTRING(`work_shifts`.`start_work_shift` FROM 12 FOR 5) AS `start_work_shift`,SUBSTRING(`work_shifts`.`end_work_shift` FROM 12 FOR 5) AS `end_work_shift` FROM `work_shifts` 
     WHERE `work_shifts`.`work_shift_id` =  (SELECT MAX(`work_shift_id`) AS 'ID' FROM `work_shifts` WHERE `work_shifts`.`courier_id` = '$courier_id')"); // выполнение sql запроса
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
