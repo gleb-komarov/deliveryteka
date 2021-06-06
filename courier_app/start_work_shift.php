@@ -25,7 +25,7 @@ function startWorkShift($courier_id, $start_sql, $end_sql) {
 
 function updateCourierInfo ($courier_id, $hours) {
     $pdo = getPdo();
-    $query = $pdo->query("UPDATE `couriers` SET `is_online`= 1 WHERE  `courier_id` = '$courier_id';"); // выполнение sql запроса
+    $query = $pdo->query("UPDATE `couriers` SET `is_online`= 1, `all_shifts` = `all_shifts`+1, `all_hours` = `all_hours`+'$hours' WHERE  `courier_id` = '$courier_id';"); // выполнение sql запроса
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 

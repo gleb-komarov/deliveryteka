@@ -45,7 +45,6 @@ foreach ($active_order as $row) {
     $active_order_id = $row->active_order_id;
 }
 
-
 if ($active_order_id == NULL) {
     $orders = getOrders();
 
