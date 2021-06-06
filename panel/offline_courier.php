@@ -16,5 +16,14 @@ function offlineCourier($courier_id) {
     $query = $pdo->query("UPDATE `couriers` SET is_online = 0  WHERE `courier_id` = '$courier_id';");
 }
 
+function setEndWorkShift($courier_id) {
+    $end_time = date("Y-m-d ");
+
+    $pdo = getPdo(); // подключаемся к БД
+    $query = $pdo->query("UPDATE `work_shifts` SET `end_work_shift` = '$end_time' WHERE `work_shifts`.`work_shift_id` = 
+    (SELECT MAX(`work_shifts`.`work_shift_id`) FROM `work_shifts` WHERE `work_shifts`.`courier_id`= '$courier_id');");
+}
+
 offlineCourier($courier_id);
+setEndWorkShift($courier_id);
 header('Location: couriers.php');
