@@ -90,8 +90,8 @@ function registerCourier($phone, $password, $name)
 {
     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
     $pdo = getPdo(); // подключаемся к БД
-    $query = $pdo->query("INSERT INTO  `couriers` (`courier_id` ,`courier_phone` ,`courier_password`, `courier_name`, `is_online`) 
-    VALUES (NULL , '$phone', '$pass_hash', '$name', 0);"); // запрос
+    $query = $pdo->query("INSERT INTO  `couriers` (`courier_id` ,`courier_phone` ,`courier_password`, `courier_name`, `is_online`, `active_order_id`, `all_shifts`, `all_hours`) 
+    VALUES (NULL , '$phone', '$pass_hash', '$name', 0, NULL , 0, 0);"); // запрос
 }
 
 function getMedicineForms() {
