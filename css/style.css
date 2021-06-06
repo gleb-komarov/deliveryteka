@@ -337,6 +337,7 @@ input:hover, select:hover, label:hover {
     width: 100%;
     margin: 150px auto 50px auto;
 
+    font-size: 14px;
     text-align: center;
     border-radius: 8px;
     border-spacing: 0;

@@ -52,6 +52,7 @@ $orders_array = getOrders();
                         <th>Дата/Время</th>
                         <th>Статус</th>
                         <th>Курьер</th>
+                        <th>Зарплата курьера</th>
                         <th>Клиент</th>
                         <th>Адрес</th>
                         <th>Коммент</th>
@@ -64,11 +65,12 @@ $orders_array = getOrders();
                             <td><?php echo "$row->order_datetime"; ?></td>
                             <td><?php echo "$row->order_status"; ?></td>
                             <td><?php echo "$row->courier_phone"; ?></td>
+                            <td><?php echo "$row->courier_salary" . " руб."; ?></td>
                             <td><?php echo "$row->user_phone"; ?></td>
                             <td><?php echo "$row->user_address"; ?></td>
                             <td><?php echo "$row->user_comment"; ?></td>
                             <td><?php echo "$row->pay_method"; ?></td>
-                            <td><?php echo "$row->order_total"; ?></td>
+                            <td><?php echo "$row->order_total" . " руб."; ?></td>
 <!--                            --><?php //$order_content_array = addImageAndPdfInMedicine(getOrderContent($row->order_id)); $order_id = $row->order_id ?>
                         </tr>
 <!--                        order content view-->
