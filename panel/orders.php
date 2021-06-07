@@ -58,39 +58,30 @@ $orders_array = getOrders();
                         <th>Коммент</th>
                         <th>Платеж</th>
                         <th>Сумма</th>
+                        <th>Действие</th>
                     </tr>
                     <?php foreach ($orders_array as $row) { ?>
                         <tr>
                             <td><?php echo "$row->order_id"; ?></td>
                             <td><?php echo "$row->order_datetime"; ?></td>
                             <td><?php echo "$row->order_status"; ?></td>
-                            <td><?php echo "$row->courier_phone"; ?></td>
+                            <?php if ($row->courier_id == "") { ?>
+                                <td>-</td>
+                            <?php } else { ?>
+                                <td><?php echo "$row->courier_id" . " ID"; ?></td>
+                            <?php } ?>
                             <td><?php echo "$row->courier_salary" . " руб."; ?></td>
                             <td><?php echo "$row->user_phone"; ?></td>
                             <td><?php echo "$row->user_address"; ?></td>
                             <td><?php echo "$row->user_comment"; ?></td>
                             <td><?php echo "$row->pay_method"; ?></td>
                             <td><?php echo "$row->order_total" . " руб."; ?></td>
-<!--                            --><?php //$order_content_array = addImageAndPdfInMedicine(getOrderContent($row->order_id)); $order_id = $row->order_id ?>
+                            <?php if ($row->courier_id == "") { ?>
+                                <td><a href="cancel_order.php?<?php echo "order_id="."$row->order_id" . "&courier_id=" . "$row->courier_id"; ?>">Отменить</a></td>
+                            <?php } else { ?>
+                                <td><a href="cancel_order.php?<?php echo "order_id="."$row->order_id" . "&courier_id=" . "$row->courier_id"; ?>">Отменить</a></td>
+                            <?php } ?>
                         </tr>
-<!--                        order content view-->
-<!--                    --><?php //foreach ($order_content_array as $row) { ?>
-<!--                            <tr class="order_content" id="content_--><?php //echo "$order_id"; ?><!--">-->
-<!--                                <td>--><?php //echo "$row->medicine_id"; ?><!--</td>-->
-<!--                                <td>--><?php //echo "$row->medicine_name"; ?><!--</td>-->
-<!--                                <td>--><?php //echo "$row->medicine_price"; ?><!--</td>-->
-<!--                                <td>--><?php //echo "$row->medicine_country"; ?><!--</td>-->
-<!--                                <td>--><?php //echo "$row->medicine_pack"; ?><!--</td>-->
-<!--                                <td>--><?php //echo "$row->medicine_dosage"; ?><!--</td>-->
-<!--                                <td>--><?php //echo "$row->medicine_form"; ?><!--</td>-->
-<!--                                <td><a href="--><?php //echo "$row->medicine_img";?><!--" target="_blank"><img class="output__img" src="--><?php //echo "$row->medicine_img";?><!--" width="40" height="40" alt="Картинка"></a></td>-->
-<!--                                --><?php //if ( file_exists($row->medicine_pdf)) { ?>
-<!--                                    <td><a href="--><?php //echo "$row->medicine_pdf"; ?><!--" target="_blank">PDF-файл</a></td>-->
-<!--                                --><?php //} else {?>
-<!--                                    <td>-</td>-->
-<!--                                --><?php //} ?>
-<!--                            </tr>-->
-<!--                        --><?php //} ?>
                     <?php } ?>
                 </table>
             </div>

@@ -67,11 +67,10 @@ function getCouriers() {
 function getOrders() {
     $pdo = getPdo();
     $query = $pdo->query(
-        "SELECT `orders`.`order_id`, `orders`.`order_datetime`, `orders`.`courier_salary`, `order_statuses`.`order_status_name` AS `order_status`, `couriers`.`courier_phone`,
+        "SELECT `orders`.`order_id`, `orders`.`order_datetime`, `orders`.`courier_salary`, `order_statuses`.`order_status_name` AS `order_status`, `orders`.`courier_id`,
         `orders`.`user_phone`, `orders`.`user_address`, `orders`.`user_comment`, `pay_methods`.`pay_method_name` AS `pay_method` , `orders`.`order_total`
         FROM `orders`
         INNER JOIN `order_statuses` ON `order_statuses`.`order_status_id` = `orders`.`order_status_id`
-        INNER JOIN `couriers` ON `couriers`.`courier_id` = `orders`.`courier_id`
         INNER JOIN `pay_methods` ON `pay_methods`.`pay_method_id` = `orders`.`pay_method_id`
         ORDER BY `orders`.`order_datetime` DESC;"
     );
