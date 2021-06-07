@@ -37,7 +37,7 @@ function getCourierWorkShift($courier_id) {
 }
 
 if (isExistCourier($courier_id)) {
-    date_default_timezone_set ('Europe/Minsk');
+    date_default_timezone_set ('UTC');
 
     $start_sql = date("Y-m-d ") . (date("H")+1 . date(":i:s")) ;
     $end_sql = date("Y-m-d ") . (date("H")+1+$hours . date(":i:s"));
@@ -47,7 +47,6 @@ if (isExistCourier($courier_id)) {
     $work_shift = getCourierWorkShift($courier_id);
 
     print_r(json_encode($work_shift, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-
 } else {
     die(http_response_code(404));
 }

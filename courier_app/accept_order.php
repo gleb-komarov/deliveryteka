@@ -13,7 +13,7 @@ function acceptOrder($courier_id, $order_id) {
     $pdo = getPdo();
     $query = $pdo->query("UPDATE `orders` SET `courier_id`= '$courier_id', `order_status_id` = `order_status_id` + 1 WHERE  `order_id` = '$order_id' AND `order_status_id` IN (2,3,4);
     UPDATE `couriers` SET `active_order_id`= '$order_id'  WHERE  `courier_id` = '$courier_id';
-    UPDATE  `couriers` SET `active_order_id`= NULL WHERE (SELECT `orders`.`order_status_id` FROM `orders` WHERE `order_id` = '$order_id') IN (1,5)"); // выполнение sql запроса
+    UPDATE  `couriers` SET `active_order_id`= NULL WHERE (SELECT `orders`.`order_status_id` FROM `orders` WHERE `order_id` = '$order_id') IN (1,5);"); // выполнение sql запроса
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
