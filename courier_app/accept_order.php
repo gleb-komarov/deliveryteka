@@ -11,7 +11,9 @@ else {
 
 function acceptOrder($courier_id, $order_id) {
     $pdo = getPdo();
-    $query = $pdo->query("UPDATE `orders` SET `courier_id`= '$courier_id' WHERE  `order_id` = '$order_id';
-    UPDATE `couriers` SET `active_order_id`= '$order_id',  WHERE  `courier_id` = '$courier_id';"); // выполнение sql запроса
+    $query = $pdo->query("UPDATE `orders` SET `courier_id`= '$courier_id', `order_status_id` = 3 WHERE  `order_id` = '$order_id';
+    UPDATE `couriers` SET `active_order_id`= '$order_id'  WHERE  `courier_id` = '$courier_id';"); // выполнение sql запроса
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
+
+acceptOrder($courier_id, $order_id);

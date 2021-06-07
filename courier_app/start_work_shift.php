@@ -37,6 +37,8 @@ function getCourierWorkShift($courier_id) {
 }
 
 if (isExistCourier($courier_id)) {
+    date_default_timezone_set ('Europe/Minsk');
+
     $start_sql = date("Y-m-d ") . (date("H")+1 . date(":i:s")) ;
     $end_sql = date("Y-m-d ") . (date("H")+1+$hours . date(":i:s"));
 
