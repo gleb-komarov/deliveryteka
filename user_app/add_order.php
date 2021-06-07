@@ -32,15 +32,19 @@ function getOrderId ($user_id) {
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
-function addOrderContentAndClearBasket($user_id, $order_id) {
+function addOrderContent($user_id, $order_id) {
     $pdo = getPdo();
     $query = $pdo->query("INSERT INTO `order_content` (`order_content_id`, `order_id`, `medicine_id`, `count`, `sum`)
     SELECT NULL, '$order_id', `medicine_id`, `count`, `sum` FROM `basket`
-    WHERE `basket`.`user_id` = '$user_id';
-	DELETE FROM `basket` WHERE `basket`.`user_id` = '$user_id';");
+    WHERE `basket`.`user_id` = '$user_id';");
 }
 
-function getBaskeySumByUserId($user_id) { // берем данные корины из БД по user_id
+function clearBasket($user_id) {
+    $pdo = getPdo();
+    $query = $pdo->query("DELETE FROM `basket` WHERE `basket`.`user_id` = '$user_id';");
+}
+
+function getBasketSumByUserId($user_id) { // берем данные корины из БД по user_id
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `basket`.`sum` FROM `basket` WHERE `basket`.`user_id` = '$user_id'"
@@ -52,7 +56,7 @@ if (isExistUser($user_id)) { //проверяем если user и medicine су
     date_default_timezone_set('Europe/Minsk'); // находим время заказа
     $datetime = date('Y-m-d H:i:s', time());
 
-    $basket = getBaskeySumByUserId($user_id);
+    $basket = getBasketSumByUserId($user_id);
 
     foreach ($basket as $row) { // считаем сумму заказа из корзнины
         $total += $row->sum;
@@ -66,7 +70,8 @@ if (isExistUser($user_id)) { //проверяем если user и medicine су
     foreach ($order_array as $row) {
         $order_id = $row->order_id;
     }
-    addOrderContentAndClearBasket($user_id, $order_id);
+    addOrderContent($user_id, $order_id);
+    clearBasket($user_id);
 }
 else {
     die(http_response_code(404));
