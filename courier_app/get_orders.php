@@ -12,11 +12,10 @@ function getOrders() { // берем данные заказов из БД по 
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `orders`.`order_id`, `orders`.`order_datetime`, `orders`.`order_total`, `orders`.`user_name`, `orders`.`user_address`, `orders`.`user_phone`, `orders`.`user_comment`,
-        `order_statuses`.`order_status_name` AS `order_status`, `pay_methods`.`pay_method_name` AS `pay_method`
+        `orders`.`order_status_id`, `pay_methods`.`pay_method_name` AS `pay_method`
         FROM `orders`
-        INNER JOIN `order_statuses` ON `order_statuses`.`order_status_id` = `orders`.`order_status_id`
         INNER JOIN `pay_methods` ON `pay_methods`.`pay_method_id` = `orders`.`pay_method_id`
-        WHERE `orders`.`courier_id` IS NULL ORDER BY `orders`.`order_id` DESC;");
+        WHERE `orders`.`courier_id` IS NULL AND `orders`.`order_status_id` IN (2,3,4) ORDER BY `orders`.`order_id` DESC;");
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
@@ -24,9 +23,8 @@ function getOrderById($order_id) {
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `orders`.`order_id`, `orders`.`order_datetime`, `orders`.`order_total`, `orders`.`user_name`, `orders`.`user_address`, `orders`.`user_phone`, `orders`.`user_comment`,
-        `order_statuses`.`order_status_name` AS `order_status`, `pay_methods`.`pay_method_name` AS `pay_method`
+        `orders`.`order_status_id`, `pay_methods`.`pay_method_name` AS `pay_method`
         FROM `orders`
-        INNER JOIN `order_statuses` ON `order_statuses`.`order_status_id` = `orders`.`order_status_id`
         INNER JOIN `pay_methods` ON `pay_methods`.`pay_method_id` = `orders`.`pay_method_id`
         WHERE `orders`.`order_id` = '$order_id';");
     return $query->fetchAll(PDO::FETCH_OBJ);
