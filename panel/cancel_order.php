@@ -12,8 +12,6 @@ else {
 $order_id = $_GET['order_id'];
 $courier_id = $_GET['courier_id'];
 
-echo $courier_id;
-
 function removeOrderWithActiveOrderCourier($order_id, $courier_id) {
     $pdo = getPdo(); // подключаемся к БД
     $query = $pdo->query("UPDATE `orders` SET `courier_id`= NULL, `order_status_id` = 1 WHERE  `order_id` = '$order_id';
