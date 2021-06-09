@@ -24,6 +24,10 @@ foreach ($courier_info as $row) {
     if ($row->all_salary == NULL) {
         $row->all_salary = 0;
     }
+    $row->all_shifts = $row->all_shifts . " смен(ы)";
+    $row->all_hours = $row->all_hours . " час(ов)";
+    $row->all_orders = $row->all_orders . " заказ(ов)";
+    $row->all_salary = $row->all_salary . " руб.";
 }
 
 $response = array(
