@@ -21,7 +21,7 @@ if (!empty($_POST)) {
     $medicine_dosage = isset($_POST['medicine_dosage']) ? trim($_POST['medicine_dosage']) : '';
     $medicine_form= isset($_POST['medicine_form']) ? trim($_POST['medicine_form']) : '';
     $medicine_category = isset($_POST['medicine_category']) ? trim($_POST['medicine_category']) : '';
-    if ($_FILES["medicine_img"]["type"] != "image/jpeg" || $_FILES["medicine_img"]["type"] != "image/png")
+    if ($_FILES["medicine_img"]["type"] != "image/jpeg" && $_FILES["medicine_img"]["type"] != "image/png")
     {
         $errors[] = "Картинка не выбрана";
     }
@@ -51,7 +51,7 @@ if (!empty($_POST)) {
         $errors[] = "Выберите категорию препарата";
     }
     if (empty($errors)) { // если ошибок нету
-        $result = "<p class='error__list'>Вы успешно добавили препарат , тел: !</p>";
+        $result = "<p class='error__list'>Вы успешно добавили препарат $medicine_name</p>";
 
         $name = $_FILES["medicine_img"]["name"];
         move_uploaded_file($_FILES["medicine_img"]["tmp_name"], $name);
@@ -59,7 +59,6 @@ if (!empty($_POST)) {
         $name = $_FILES["medicine_pdf"]["name"];
         move_uploaded_file($_FILES["medicine_pdf"]["tmp_name"], $name);
     }
-    echo "$medicine_name $medicine_price $medicine_country $medicine_pack $medicine_dosage $medicine_form $medicine_category";
 }
 
 ?>
