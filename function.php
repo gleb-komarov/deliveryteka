@@ -122,7 +122,7 @@ function getErrors($errors) {
     if (!empty($errors)) {
         echo "<ul class='error__list'>";
         foreach ($errors as $error) {
-            echo "<li>$error</li><br>";
+            echo "<li class='error__item'>$error</li>";
         }
         echo "</ul>";
     }

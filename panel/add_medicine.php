@@ -21,7 +21,14 @@ if (!empty($_POST)) {
     $medicine_dosage = isset($_POST['medicine_dosage']) ? trim($_POST['medicine_dosage']) : '';
     $medicine_form= isset($_POST['medicine_form']) ? trim($_POST['medicine_form']) : '';
     $medicine_category = isset($_POST['medicine_category']) ? trim($_POST['medicine_category']) : '';
-    $medicine_img = $_FILES["medicine_img"]["name"];
+    if ($_FILES["medicine_img"]["type"] != "image/jpeg" || $_FILES["medicine_img"]["type"] != "image/png")
+    {
+        $errors[] = "Картинка не выбрана";
+    }
+    if ($_FILES["medicine_pdf"]["type"] != "application/pdf")
+    {
+        $errors[] = "PDF-файл не выбран";
+    }
     if (!$medicine_name) {
         $errors[] = "Введите название препарата";
     }
@@ -44,9 +51,15 @@ if (!empty($_POST)) {
         $errors[] = "Выберите категорию препарата";
     }
     if (empty($errors)) { // если ошибок нету
-        $result = "<p class='error__list'>Вы успешно добавили курьера , тел: !</p>";
+        $result = "<p class='error__list'>Вы успешно добавили препарат , тел: !</p>";
+
+        $name = $_FILES["medicine_img"]["name"];
+        move_uploaded_file($_FILES["medicine_img"]["tmp_name"], $name);
+
+        $name = $_FILES["medicine_pdf"]["name"];
+        move_uploaded_file($_FILES["medicine_pdf"]["tmp_name"], $name);
     }
-    echo "$medicine_name $medicine_price $medicine_country $medicine_pack $medicine_dosage $medicine_form $medicine_category $medicine_img";
+    echo "$medicine_name $medicine_price $medicine_country $medicine_pack $medicine_dosage $medicine_form $medicine_category";
 }
 
 ?>
@@ -88,7 +101,7 @@ if (!empty($_POST)) {
         <section class="login">
             <div class="container">
                 <div class="login__inner">
-                    <form class="login__form" action="" method="post">
+                    <form class="login__form" action="" method="post" enctype="multipart/form-data">
                         <h3 class="add__title">Введите данные препарата для добавления в БД:</h3>
                         <input class="medicine-name__input" type="text" name="medicine_name" maxlength="18" placeholder="Название препарата" title="Введите название препарата">
                         <input class="medicine-price__input" type="number" step="any" name="medicine_price" min="0.1" max="999" placeholder="Цена препарата" title="Введите цену препарата">
@@ -109,14 +122,10 @@ if (!empty($_POST)) {
                                 <option value="<?php echo "$row->medicine_category_id"?>"><?php echo "$row->medicine_category_name"?></option>
                             <?php } ?>
                         </select>
+                        <p class="form-input__header">Выберите картинку препарата:</p>
                         <input class="medicine-img__input" id="medicine-img" type="file" name="medicine_img" title="Выберете картинку препарата">
-                        <label for="medicine-img" class="input__label">
-                            <span class="input__span">Загрузить картинку</span>
-                        </label>
-                        <input class="medicine-pdf__input" id="medicine-pdf" type="file" name="medicine_img" title="Выберете картинку препарата">
-                        <label for="medicine-pdf" class="input__label">
-                            <span class="input__span">Загрузить PDF-файл</span>
-                        </label>
+                        <p class="form-input__header">Выберите PDF-файл препарата:</p>
+                        <input class="medicine-pdf__input" id="medicine-pdf" type="file" name="medicine_pdf" title="Выберете PDF-файл препарата">
                         <button class="accept__button" type="submit">Добавить</button>
                         <?php
                         getErrors($errors);

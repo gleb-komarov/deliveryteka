@@ -12,7 +12,7 @@ function getCourierHistory($courier_id) { // берем данные заказ�
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `orders`.`order_id`, `orders`.`order_datetime`, `orders`.`courier_salary` FROM `orders`
-        WHERE DATEDIFF(order_datetime, CURRENT_DATE()) < 7 AND `orders`.`courier_id` = '$courier_id'");
+        WHERE DATEDIFF(order_datetime, CURRENT_DATE()) < 7 AND `orders`.`courier_id` = '$courier_id' ORDER BY `orders`.`order_id` DESC;");
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 

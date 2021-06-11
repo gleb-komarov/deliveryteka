@@ -229,7 +229,7 @@ body {
 }
 
 .login {
-    margin-top: 120px;
+    margin-top: 80px;
     width: 100%;
 }
 
@@ -283,7 +283,13 @@ input:hover, select:hover, label:hover {
     border: 2px solid rgba(244, 67, 54, 0.85);
 }
 
-.medicine-img__input, .medicine-pdf__input {
+.form-input__header {
+    font-weight: 500;
+    font-size: 16px;
+    margin: 2px 0;
+}
+
+::-webkit-file-upload-button {
     width: .1px;
     height: .1px;
     opacity: 0;
@@ -291,6 +297,15 @@ input:hover, select:hover, label:hover {
     position: absolute;
     z-index: -1;
 }
+
+/*.medicine-img__input, .medicine-pdf__input {*/
+/*    width: .1px;*/
+/*    height: .1px;*/
+/*    opacity: 0;*/
+/*    overflow: hidden;*/
+/*    position: absolute;*/
+/*    z-index: -1;*/
+/*}*/
 
 .accept__button {
     width: 100%;
@@ -486,13 +501,17 @@ input:hover, select:hover, label:hover {
 }
 
 .error__list {
-    margin: 12px auto;
+    margin: 10px auto;
     padding: 0;
     color: rgba(244, 67, 54, 0.85);
     list-style: none;
 
     font-weight: 600;
     text-align: center;
+}
+
+.error__item {
+    margin: 5px;
 }
 
 .cases__inner, .steps__inner {
