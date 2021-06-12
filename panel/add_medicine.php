@@ -50,14 +50,26 @@ if (!empty($_POST)) {
     if (!$medicine_category) {
         $errors[] = "Выберите категорию препарата";
     }
+    $medicine_description = "ABOBA";
     if (empty($errors)) { // если ошибок нету
-        $result = "<p class='error__list'>Вы успешно добавили препарат $medicine_name</p>";
+        addMedicine($medicine_name, $medicine_price, $medicine_country, $medicine_pack, $medicine_dosage, $medicine_form, $medicine_category, $medicine_description);
+
+        $medicine_id_array = getMedicineId();
+
+        print_r($medicine_id_array);
+
+        foreach ($medicine_id_array as $row) {
+            $medicine_id = $row->medicine_id;
+            echo $medicine_id;
+        }
 
         $name = $_FILES["medicine_img"]["name"];
-        move_uploaded_file($_FILES["medicine_img"]["tmp_name"], $name);
+        move_uploaded_file($_FILES["medicine_img"]["tmp_name"], "../user_app/img/" . $medicine_id . ".jpg");
 
         $name = $_FILES["medicine_pdf"]["name"];
-        move_uploaded_file($_FILES["medicine_pdf"]["tmp_name"], $name);
+        move_uploaded_file($_FILES["medicine_pdf"]["tmp_name"], "../user_app/pdf/" . $medicine_id . ".pdf");
+
+        $result = "<p class='error__list'>Вы успешно добавили препарат $medicine_name</p>";
     }
 }
 
@@ -73,7 +85,6 @@ if (!empty($_POST)) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../img/shortcut_logo.svg" type="image/vsg">
 </head>
-
 <body onload="myFunction()">
     <div id="loader"></div>
     <header class="header">
@@ -95,7 +106,6 @@ if (!empty($_POST)) {
                 </div>
         </section>
     </header>
-
     <main class="main animate-bottom" style="display:none;" id="content">
         <section class="login">
             <div class="container">

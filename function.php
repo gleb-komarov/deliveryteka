@@ -118,6 +118,18 @@ function getOrderContent($order_id) {
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
+function addMedicine($medicine_name, $medicine_price, $medicine_country, $medicine_pack, $medicine_dosage, $medicine_form, $medicine_category, $medicine_description) {
+    $pdo = getPdo(); // подключаемся к БД
+    $query = $pdo->query("INSERT INTO  `medicine` (`medicine_id` ,`medicine_name` ,`medicine_category`, `medicine_form`, `medicine_price`, `medicine_pack`, `medicine_dosage`, `medicine_country`, `medicine_description`, `medicine_is_recipe`) 
+    VALUES (NULL , '$medicine_name', '$medicine_category', '$medicine_form', '$medicine_price', '$medicine_pack', '$medicine_dosage', '$medicine_country', '$medicine_description', 0);"); // запрос
+}
+
+function getMedicineId() {
+    $pdo = getPdo();
+    $query = $pdo->query("SELECT @@IDENTITY AS 'medicine_id';");
+    return $query->fetchAll(PDO::FETCH_OBJ);
+}
+
 function getErrors($errors) {
     if (!empty($errors)) {
         echo "<ul class='error__list'>";
