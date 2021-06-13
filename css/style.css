@@ -252,7 +252,7 @@ body {
     margin-top: 30px;
 }
 
-input, select, label {
+input, select, label, textarea {
 
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
@@ -267,6 +267,7 @@ input, select, label {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    resize: none;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -275,11 +276,11 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input:focus, select:focus, label:focus {
+input:focus, select:focus, label:focus, textarea:focus {
     border: 2px solid rgba(244, 67, 54, 0.85);
 }
 
-input:hover, select:hover, label:hover {
+input:hover, select:hover, label:hover, textarea:hover {
     border: 2px solid rgba(244, 67, 54, 0.85);
 }
 
@@ -350,7 +351,7 @@ input:hover, select:hover, label:hover {
 
 .output__table {
     width: 100%;
-    margin: 150px auto 50px auto;
+    margin: 120px auto 30px auto;
 
     font-size: 14px;
     text-align: center;
@@ -730,4 +731,29 @@ details[open] summary:before {
     overflow-y: hidden;
 }
 
+.page__list {
+    display: flex;
+    justify-content: center;
+}
 
+.page__list ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+}
+
+.page__list li {
+    display: inline;
+}
+
+/*.page__list a {*/
+/*    color: #242424;*/
+/*    font-size: 18px;*/
+/*    font-weight: 500;*/
+/*    text-decoration: none;*/
+/*    transition: color .2s linear;*/
+/*}*/
+
+/*.page__list a:hover {*/
+/*    color: rgba(244, 67, 54, 0.85)*/
+/*}*/

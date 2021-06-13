@@ -21,6 +21,7 @@ if (!empty($_POST)) {
     $medicine_dosage = isset($_POST['medicine_dosage']) ? trim($_POST['medicine_dosage']) : '';
     $medicine_form= isset($_POST['medicine_form']) ? trim($_POST['medicine_form']) : '';
     $medicine_category = isset($_POST['medicine_category']) ? trim($_POST['medicine_category']) : '';
+    $medicine_description = isset($_POST['medicine_description']) ? trim($_POST['medicine_description']) : '';
     if ($_FILES["medicine_img"]["type"] != "image/jpeg" && $_FILES["medicine_img"]["type"] != "image/png")
     {
         $errors[] = "Картинка не выбрана";
@@ -50,17 +51,16 @@ if (!empty($_POST)) {
     if (!$medicine_category) {
         $errors[] = "Выберите категорию препарата";
     }
-    $medicine_description = "ABOBA";
+    if (!$medicine_description) {
+        $errors[] = "Выберите описание препарата";
+    }
     if (empty($errors)) { // если ошибок нету
         addMedicine($medicine_name, $medicine_price, $medicine_country, $medicine_pack, $medicine_dosage, $medicine_form, $medicine_category, $medicine_description);
 
         $medicine_id_array = getMedicineId();
 
-        print_r($medicine_id_array);
-
         foreach ($medicine_id_array as $row) {
             $medicine_id = $row->medicine_id;
-            echo $medicine_id;
         }
 
         $name = $_FILES["medicine_img"]["name"];
@@ -131,6 +131,7 @@ if (!empty($_POST)) {
                                 <option value="<?php echo "$row->medicine_category_id"?>"><?php echo "$row->medicine_category_name"?></option>
                             <?php } ?>
                         </select>
+                        <textarea class="medicine-description__input" type="text" name="medicine_description" placeholder="Описание препарата" title="Введите описание препарата"></textarea>
                         <p class="form-input__header">Выберите картинку препарата:</p>
                         <input class="medicine-img__input" id="medicine-img" type="file" name="medicine_img" title="Выберете картинку препарата">
                         <p class="form-input__header">Выберите PDF-файл препарата:</p>

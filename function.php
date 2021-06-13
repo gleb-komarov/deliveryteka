@@ -22,7 +22,9 @@ function loginUser($login, $password)
     return false; // если нет то возвращаем false
 }
 
-function getMedicine() {
+function getMedicine($page) {
+    $limit = 10;
+    $os = $page*$limit;
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `medicine`.`medicine_id`, `medicine`.`medicine_name`, `medicine`.`medicine_price`,
@@ -32,7 +34,7 @@ function getMedicine() {
         FROM `medicine`
         INNER JOIN `medicine_categories` ON `medicine`.`medicine_category` = `medicine_categories`.`medicine_category_id`
         INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`
-        ORDER BY `medicine`.`medicine_id` DESC;"
+        LIMIT $limit OFFSET $os;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
@@ -127,6 +129,13 @@ function addMedicine($medicine_name, $medicine_price, $medicine_country, $medici
 function getMedicineId() {
     $pdo = getPdo();
     $query = $pdo->query("SELECT @@IDENTITY AS 'medicine_id';");
+    return $query->fetchAll(PDO::FETCH_OBJ);
+}
+
+function getMedicineCount() {
+    $pdo = getPdo();
+    $query = $pdo->query(
+        "SELECT COUNT(`medicine`.`medicine_id`) AS `medicine_count` FROM `medicine`;");
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 

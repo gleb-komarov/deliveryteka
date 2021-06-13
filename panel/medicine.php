@@ -9,7 +9,22 @@ else {
     header('Location: login.php'); // если не залогинен переходим на страницу логина
 }
 
-$medicine_array = addImageAndPdfInMedicine(getMedicine());
+if ( empty($_GET['page'])) { // check GET data
+    $page = 0;
+}
+else {
+    $page = $_GET['page'];
+}
+
+$medicine_count_array = getMedicineCount();
+
+foreach ($medicine_count_array as $row) {
+    $medicine_count = $row->medicine_count;
+}
+
+$pages = ceil($medicine_count/10);
+
+$medicine_array = addImageAndPdfInMedicine(getMedicine($page));
 ?>
 
 <!DOCTYPE html>
@@ -83,6 +98,13 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine());
                          </tr>
                         <?php } ?>
                     </table>
+                </div>
+                <div class="page__list">
+                    <ul>
+                        <?php for ($i = 0; $i < $pages; $i++) { ?>
+                        <li><a class="nav__link" href="medicine.php?page=<?php echo $i ?>"><?php echo $i+1 ?></a></li>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
         </section>
