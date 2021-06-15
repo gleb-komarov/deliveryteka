@@ -26,10 +26,6 @@ if (!empty($_POST)) {
     {
         $errors[] = "Картинка не выбрана";
     }
-    if ($_FILES["medicine_pdf"]["type"] != "application/pdf")
-    {
-        $errors[] = "PDF-файл не выбран";
-    }
     if (!$medicine_name) {
         $errors[] = "Введите название препарата";
     }
@@ -63,10 +59,8 @@ if (!empty($_POST)) {
             $medicine_id = $row->medicine_id;
         }
 
-        $name = $_FILES["medicine_img"]["name"];
         move_uploaded_file($_FILES["medicine_img"]["tmp_name"], "../user_app/img/" . $medicine_id . ".jpg");
 
-        $name = $_FILES["medicine_pdf"]["name"];
         move_uploaded_file($_FILES["medicine_pdf"]["tmp_name"], "../user_app/pdf/" . $medicine_id . ".pdf");
 
         $result = "<p class='error__list'>Вы успешно добавили препарат $medicine_name</p>";

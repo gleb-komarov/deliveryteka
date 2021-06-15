@@ -8,7 +8,6 @@ if ( isset($_SESSION['login'])) { // проверям залогинен ли ad
 else {
     header('Location: login.php'); // если не залогинен переходим на страницу логина
 }
-
 if (!empty($_POST)) {
     $errors = []; // создаем массив ошибок
     $username = isset($_POST['name']) ? trim($_POST['name']) : ''; // если введено значения name то удаляем из него пробелы и присваиваем это переменной
@@ -31,7 +30,6 @@ if (!empty($_POST)) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -42,7 +40,6 @@ if (!empty($_POST)) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../img/shortcut_logo.svg" type="image/vsg">
 </head>
-
 <body onload="myFunction()">
     <div id="loader"></div>
     <header class="header">
@@ -72,7 +69,7 @@ if (!empty($_POST)) {
                         <h3 class="add__title">Введите данные курьера для добавления в БД:</h3>
                         <input class="phone__input phone_mask" type="text" name="phone" maxlength="18" placeholder="Номер телефона" title="Введите номер телефона">
                         <input class="login__input" type="text" name="name" maxlength="16" placeholder="Имя" title="Введите имя">
-                        <input class="password__input" type="text" name="password" maxlength="16" placeholder="Пароль" title="Введите пароль">
+                        <input class="password__input" type="text" name="password" maxlength="16" placeholder="Пароль" title="Введите пароль" minlength="8">
                         <button class="accept__button" type="submit">Добавить</button>
                         <?php
                         getErrors($errors);

@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/shortcut_logo.svg" type="image/vsg">
 </head>
-
 <body>
     <header class="header">
         <section class="container">
@@ -25,14 +24,13 @@
             </div>
         </section>
     </header>
-
     <main class="main">
         <section class="intro">
             <div class="container">
                 <div class="intro__inner">
                     <h1 class="intro__title">Лекарства доставим<br> без особых хлопот</h1>
                     <h2 class="intro__subtitle">Скачивай приложение DELIVERYTEKA<br> и заказывай лекарственные препараты на дом!</h2>
-                    <a class="main__button" href="deliveryteka.rar" download>СКАЧАТЬ</a>
+                    <a class="main__button" href="Deliveryteka.rar" download>СКАЧАТЬ</a>
                 </div>
             </div>
             <div class="container">
@@ -46,6 +44,5 @@
             </div>
         </section>
     </main>
-
 </body>
 </html>

@@ -34,6 +34,7 @@ function getMedicine($page) {
         FROM `medicine`
         INNER JOIN `medicine_categories` ON `medicine`.`medicine_category` = `medicine_categories`.`medicine_category_id`
         INNER JOIN `medicine_forms` ON `medicine`.`medicine_form` = `medicine_forms`.`medicine_form_id`
+        ORDER BY `medicine`.`medicine_id`
         LIMIT $limit OFFSET $os;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
