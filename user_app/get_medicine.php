@@ -17,7 +17,7 @@ else {
     $array = searchMedicine($query, $page, $per_page);
 }
 
-function getMedicine($page, $per_page){ // берем всю медицину
+function getMedicine($page, $per_page) { // берем всю медицину постранично
     $min = $page * $per_page;
     $pdo = getPdo();
     $query = $pdo->query(

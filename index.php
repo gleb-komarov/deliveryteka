@@ -30,7 +30,7 @@
                 <div class="intro__inner">
                     <h1 class="intro__title">Лекарства доставим<br> без особых хлопот</h1>
                     <h2 class="intro__subtitle">Скачивай приложение DELIVERYTEKA<br> и заказывай лекарственные препараты на дом!</h2>
-                    <a class="main__button" href="Deliveryteka.rar" download>СКАЧАТЬ</a>
+                    <a class="main__button" href="apk/Deliveryteka.rar" download>СКАЧАТЬ</a>
                 </div>
             </div>
             <div class="container">

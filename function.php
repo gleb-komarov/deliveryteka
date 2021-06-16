@@ -98,13 +98,13 @@ function registerCourier($phone, $password, $name)
 
 function getMedicineForms() {
     $pdo = getPdo();
-    $query = $pdo->query("SELECT * FROM `medicine_forms`");
+    $query = $pdo->query("SELECT * FROM `medicine_forms` ORDER BY `medicine_forms`.`medicine_form_name`");
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 
 function getMedicineCategories() {
     $pdo = getPdo();
-    $query = $pdo->query("SELECT * FROM `medicine_categories`");
+    $query = $pdo->query("SELECT * FROM `medicine_categories` ORDER BY `medicine_categories`.`medicine_category_name`");
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
 

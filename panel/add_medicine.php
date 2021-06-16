@@ -106,7 +106,7 @@ if (!empty($_POST)) {
                 <div class="login__inner">
                     <form class="login__form" action="" method="post" enctype="multipart/form-data">
                         <h3 class="add__title">Введите данные препарата для добавления в БД:</h3>
-                        <input class="medicine-name__input" type="text" name="medicine_name" maxlength="18" placeholder="Название препарата" title="Введите название препарата">
+                        <input class="medicine-name__input" type="text" name="medicine_name" maxlength="25" placeholder="Название препарата" title="Введите название препарата">
                         <input class="medicine-price__input" type="number" step="any" name="medicine_price" min="0.1" max="999" placeholder="Цена препарата" title="Введите цену препарата">
                         <input class="medicine-country__input" type="text" name="medicine_country" maxlength="18" placeholder="Страна препарата" title="Введите страну препарата">
                         <input class="medicine-pack__input" type="text" name="medicine_pack" maxlength="18" placeholder="Упаковка препарата" title="Введите упаковку препарата">

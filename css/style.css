@@ -284,6 +284,22 @@ input:hover, select:hover, label:hover, textarea:hover {
     border: 2px solid rgba(244, 67, 54, 0.85);
 }
 
+.medicine-description__input::-webkit-scrollbar {
+    width: 3px;
+    background-color: rgba(244, 67, 54, 0);
+}
+
+.medicine-description__input::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(244, 67, 54, 0.85);
+}
+
+.medicine-description__input::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background-color: rgba(244, 67, 54, 0);
+}
+
 .form-input__header {
     font-weight: 500;
     font-size: 16px;

@@ -95,7 +95,7 @@ $deaths = $response->deaths;
                 </div>
                 <div class="courier-app__inner">
                     <h2 class="courier-app__title">Приложение DELIVERYTEKA-Courier</h2>
-                    <p class="courier-app__info">Скачать мобильное приложение DELIVERYTEKA-Courier можно по <a class="courier-app__link" href="DeliverytekaCourier.rar">ссылке</a>.</p>
+                    <p class="courier-app__info">Скачать мобильное приложение DELIVERYTEKA-Courier можно по <a class="courier-app__link" href="apk/DeliverytekaCourier.rar" download>ссылке</a>.</p>
                 </div>
             </div>
     </main>

@@ -5,7 +5,8 @@ function getMedicineCategories() { // берем данные категорий
     $pdo = getPdo();
     $query = $pdo->query(
         "SELECT `medicine_categories`.`medicine_category_name` AS `category`
-        FROM `medicine_categories`"
+        FROM `medicine_categories`
+        ORDER BY `medicine_categories`.`medicine_category_name`;"
     );
     return $query->fetchAll(PDO::FETCH_OBJ);
 }
