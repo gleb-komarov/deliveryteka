@@ -800,16 +800,21 @@ details[open] summary:before {
     }
     .intro__inner, .covid-intro__inner, .courier-intro__inner {
         margin: 0 auto;
+        padding: 0 15px;
         display: flex;
         flex-direction: column;
     }
     .intro__title {
-        margin: 40px auto 0 auto;
+        font-size: 50px;
+        margin: 10px auto 0 auto;
+        padding: 0 15px;
         text-align: center;
     }
     .intro__subtitle {
+        font-size: 18px;
         text-align: center;
         margin-bottom: 25px;
+        padding: 0 25px;
     }
     .main__button {
         margin: 0 auto;
@@ -835,5 +840,15 @@ details[open] summary:before {
     }
     .steps__inner {
         flex-direction: column;
+    }
+    .source__inner {
+        padding: 0 20px;
+    }
+    .symptoms__inner, .popular-questions__inner, .courier-app__inner {
+        padding: 0 20px;
+    }
+    .prevention__inner {
+        margin-top: 20px;
+        padding: 0 20px;
     }
 }
