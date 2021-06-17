@@ -233,7 +233,7 @@ body {
 }
 
 .login {
-    margin-top: 80px;
+    margin-top: 20px;
     width: 100%;
 }
 
@@ -253,7 +253,7 @@ body {
     justify-content: center;
     flex-direction: column;
 
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 input, select, label, textarea {
@@ -263,7 +263,7 @@ input, select, label, textarea {
     font-weight: 500;
 
     border: 2px solid #242424;
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
@@ -371,7 +371,7 @@ input:hover, select:hover, label:hover, textarea:hover {
 
 .output__table {
     width: 100%;
-    margin: 120px auto 30px auto;
+    margin: 40px auto 30px auto;
 
     font-size: 14px;
     text-align: center;
@@ -442,7 +442,8 @@ input:hover, select:hover, label:hover, textarea:hover {
     justify-content: center;
 
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    position: fixed;
 
     background: url("../img/bg.png") center no-repeat;
     -webkit-background-size: cover;
@@ -850,5 +851,9 @@ details[open] summary:before {
     .prevention__inner {
         margin-top: 20px;
         padding: 0 20px;
+    }
+    .benefits__values {
+        font-size: 20px;
+
     }
 }
