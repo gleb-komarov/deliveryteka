@@ -60,7 +60,7 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine($page));
     </header>
     <main class="main animate-bottom" style="display:none;" id="content">
         <section class="output">
-            <div class="container">
+            <div class="output__container">
                 <div class="output__inner">
                     <table class="output__table">
                         <tr>
@@ -73,6 +73,7 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine($page));
                             <th>Форма</th>
                             <th>Категория</th>
                             <th>Описание</th>
+                            <th>Рецепт</th>
                             <th>Картинка</th>
                             <th>PDF</th>
                             <th>Удалить</th>
@@ -88,6 +89,11 @@ $medicine_array = addImageAndPdfInMedicine(getMedicine($page));
                              <td><?php echo "$row->medicine_form"; ?></td>
                              <td><?php echo "$row->medicine_category"; ?></td>
                              <td><a style="cursor:pointer;" title="<?php echo "$row->medicine_description"; ?>">Описание</a></td>
+                             <?php if ( $row->medicine_is_recipe == 1) { ?>
+                                 <td>Да</td>
+                             <?php } else {?>
+                                 <td>Нет</td>
+                             <?php } ?>
                              <td><a href="<?php echo "$row->medicine_img";?>" target="_blank"><img class="output__img" src="<?php echo "$row->medicine_img";?>" width="40" height="40" alt="Картинка"></a></td>
                              <?php if ( file_exists($row->medicine_pdf)) { ?>
                                <td><a href="<?php echo "$row->medicine_pdf"; ?>" target="_blank">PDF-файл</a></td>

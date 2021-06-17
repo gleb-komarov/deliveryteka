@@ -37,14 +37,15 @@ body {
 .intro {
     width: 100%;
 
-    background: url("../img/bg2.png") center no-repeat;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 90%), url(../img/bg2.png) center no-repeat;
+   /* background: url("../img/bg2.png") center no-repeat; */
     -webkit-background-size: cover;
     background-size: cover;
 }
 
 .intro__inner, .covid-intro__inner, .courier-intro__inner {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 80px;
     margin-left: auto;
 }
 
@@ -367,6 +368,12 @@ input:hover, select:hover, label:hover, textarea:hover {
 .output__inner {
     margin: auto;
     width: 100%;
+}
+
+.output__container {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
 }
 
 .output__table {
