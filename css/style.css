@@ -660,21 +660,6 @@ input:hover, select:hover, label:hover, textarea:hover {
     margin-top: 25px;
 }
 
-details > summary {
-    list-style: none;
-}
-
-details summary:before {
-    padding: 0 7px 25px 0;
-    content: url("../img/arrow_down.svg");
-
-    transition: color .2s linear;
-}
-
-details[open] summary:before {
-    content: url("../img/arrow_up.svg");
-}
-
 .question {
     margin: 15px;
     cursor: pointer;
