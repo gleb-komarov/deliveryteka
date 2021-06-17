@@ -49,7 +49,7 @@ body {
 }
 
 .intro__title {
-    margin-top: 140px;
+    margin-top: 40px;
 
     font-size: 60px;
     font-weight: bold;
@@ -61,7 +61,7 @@ body {
 }
 
 .covid__title, .courier__title {
-    margin-top: 140px;
+    margin-top: 40px;
 
     font-size: 36px;
     font-weight: bold;
@@ -93,7 +93,6 @@ body {
 
 .header {
     padding-top: 20px;
-    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -122,6 +121,9 @@ body {
 }
 
 .benefits__inner {
+    display: flex;
+    justify-content: space-evenly;
+
     width: 100%;
     max-width: 1100px;
 
@@ -131,6 +133,31 @@ body {
     border: 1px solid rgba(166, 214, 200, 0.4);
     border-radius: 18px;
     box-shadow: 0 16px 43px rgba(17, 45, 71, 0.1);
+}
+
+.benefits__item {
+ margin: 50px 0;
+}
+
+.benefits__values {
+    margin: 3px 0;
+    line-height: 0.8;
+    color: rgba(244, 67, 54, 0.85);
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.benefits__titles {
+    margin: 3px 0;
+    color: rgba(244, 67, 54, 0.85);
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.benefits__subtitles {
+    margin: 3px 0;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .nav__link {
@@ -203,29 +230,6 @@ body {
 .main__button:hover {
     box-shadow: 0 0 8px 0 rgba(244, 67, 54, 0.85) inset, 0 0 8px 4px rgba(244, 67, 54, 0.85);
     color: rgba(244, 67, 54, 0.85);
-}
-
-.benefits__table {
-    border-spacing: 110px 0;
-    margin: 53px 38px 53px 37px;
-}
-
-.benefits__values {
-    line-height: 0.8;
-    color: rgba(244, 67, 54, 0.85);
-    font-size: 50px;
-    font-weight: 900;
-}
-
-.benefits__titles {
-    color: rgba(244, 67, 54, 0.85);
-    font-size: 16px;
-    font-weight: 900;
-}
-
-.benefits__subtitles {
-    font-size: 18px;
-    font-weight: 500;
 }
 
 .login {
@@ -773,3 +777,62 @@ details[open] summary:before {
 /*.page__list a:hover {*/
 /*    color: rgba(244, 67, 54, 0.85)*/
 /*}*/
+
+@media (max-width: 767px) {
+    .container {
+        max-width: 540px;
+    }
+    .header__inner {
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav__link {
+        margin: 10px auto;
+    }
+    .intro {
+        background: none;
+    }
+    .intro__inner, .covid-intro__inner, .courier-intro__inner {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .intro__title {
+        margin: 40px auto 0 auto;
+        text-align: center;
+    }
+    .intro__subtitle {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .main__button {
+        margin: 0 auto;
+    }
+    .benefits__inner {
+        margin: 50px auto;
+        max-width: 300px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .benefits__item {
+        text-align: center;
+        margin: 25px 0;
+    }
+    .covid__title, .courier_title {
+        text-align: center;
+    }
+    .cases__inner {
+        flex-direction: column;
+    }
+    .cases, .recovered, .deaths {
+        margin: 10px auto;
+    }
+    .steps__inner {
+        flex-direction: column;
+    }
+}

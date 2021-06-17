@@ -2,6 +2,7 @@
 <html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DELIVERYTEKA</title>
     <link href="css/style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -35,11 +36,26 @@
             </div>
             <div class="container">
                 <div class="benefits__inner">
-                    <table class="benefits__table">
-                        <tr class="benefits__values"><td>30</td><td>27</td><td>0</td><td>726</td></tr>
-                        <tr class="benefits__titles"><td>минут</td><td>аптек</td><td>рублей</td><td>отзывов</td></tr>
-                        <tr class="benefits__subtitles"><td>Среднее время<br> доставки</td><td>Работает<br> в доставке</td><td>За первый<br> заказ</td><td>Довольных<br> клиентов</td></tr>
-                    </table>
+                    <div class="benefits__item">
+                        <h3 class="benefits__values">30</h3>
+                        <p class="benefits__titles">мунут</p>
+                        <p class="benefits__subtitles">Среднее время<br>доставки</p>
+                    </div>
+                    <div class="benefits__item">
+                        <h3 class="benefits__values">27</h3>
+                        <p class="benefits__titles">аптек</p>
+                        <p class="benefits__subtitles">Работает<br>в доставке</p>
+                    </div>
+                    <div class="benefits__item">
+                        <h3 class="benefits__values">0</h3>
+                        <p class="benefits__titles">рублей</p>
+                        <p class="benefits__subtitles">За первый<br>заказ</p>
+                    </div>
+                    <div class="benefits__item">
+                        <h3 class="benefits__values">726</h3>
+                        <p class="benefits__titles">отзывов</p>
+                        <p class="benefits__subtitles">Довольных<br>клиентов</p>
+                    </div>
                 </div>
             </div>
         </section>
