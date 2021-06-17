@@ -590,6 +590,7 @@ input:hover, select:hover, label:hover, textarea:hover {
     margin-top: 15px;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .source__link {
